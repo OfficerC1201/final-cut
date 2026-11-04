@@ -215,6 +215,19 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
 .q-item .t{font-weight:600;overflow-wrap:anywhere}
 .q-item .t mark{background:none;color:var(--accent)}
 .q-note{padding:10px 8px;color:var(--muted);font-size:13px}
+.yr{font-weight:400;color:var(--muted);font-family:var(--mono);font-size:13px;margin-left:6px;white-space:nowrap}
+.qrate{display:flex;align-items:center;gap:2px;margin-top:6px}
+.qstar{background:none;border:0;padding:2px 3px;font-size:18px;line-height:1;color:var(--line);cursor:pointer}
+.qstar[aria-pressed="true"]{color:var(--fav)}
+.qrate:hover .qstar{color:var(--fav)}
+.qrate .qstar:hover ~ .qstar{color:var(--line)}
+.qlbl{font-size:11px;color:var(--muted);margin-left:6px;text-transform:uppercase;letter-spacing:.06em}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#16151a;font-weight:600}
+.best{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.bscore{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-variant-numeric:tabular-nums}
+.bscore b{font-family:var(--display);font-size:26px;font-weight:800;color:var(--fav);line-height:1}
+.bscore span{font-size:11px;color:var(--muted);white-space:nowrap}
+@media (max-width:520px){.best .slot{grid-template-columns:34px 36px 1fr auto}.best .slot .num{font-size:28px}}
 .overview{display:flex;flex-direction:column;gap:14px}
 .totals{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .tot{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:2px;color:var(--fg)}
@@ -289,6 +302,13 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
   <section class="overview" aria-label="Übersicht">
     <div class="totals" id="totals"></div>
     <div class="gtiles" id="gtiles"></div>
+  </section>
+
+  <section>
+    <h2>Bestenliste</h2>
+    <p class="sub" style="margin:6px 0 12px">Die am besten bewerteten Titel – insgesamt oder pro Genre.</p>
+    <div class="chips" id="best-tabs"></div>
+    <div class="best" id="best" style="margin-top:12px"></div>
   </section>
 
   <form class="add" id="add" autocomplete="off">
@@ -376,6 +396,7 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
   const STREAMS = ["Netflix","Prime Video","Disney+","Apple TV+","WOW / Sky","Paramount+","RTL+","Joyn","MagentaTV","Mediathek"];
   const REC = {1:"Eher nicht", 2:"Geht so", 3:"Gut", 4:"Sehr gut", 5:"Unbedingt sehen"};
   const $ = id => document.getElementById(id);
+  let bestGenre = "Alle"; try{ bestGenre = localStorage.getItem("finalcut-best")||"Alle"; }catch(e){}
   let sb = null, session = null, weekly = null, myScores = {}, agg = {}, rateBusy = false, ratingRows = [];
   let myName = "", askName = null;
   try{ myName = localStorage.getItem("finalcut-name")||""; }catch(e){}
@@ -392,7 +413,7 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
   function fmtAvg(a){ return a.toFixed(1).replace(".",","); }
   async function rate(id, n){
     if(!sb || rateBusy) return;
-    if(!myName){ askName = {id, n}; renderSheet(); return; }
+    if(!myName){ askName = {id, n}; if(openId!==id) openSheet(id); else renderSheet(); return; }
     const remove = !n || myScores[id]===n;
     rateBusy = true;
     ratingRows = ratingRows.filter(r=>!(r.title_id===id && r.device_id===deviceId));
@@ -482,6 +503,21 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
   }
 
   function render(){
+    // Bestenliste
+    const rated = items.filter(i=>agg[i.id]&&agg[i.id].n);
+    const bestGenres = ["Alle", ...[...new Set(rated.flatMap(i=>i.cats||[]))].sort((a,b)=>a.localeCompare(b,"de"))];
+    if(!bestGenres.includes(bestGenre)) bestGenre = "Alle";
+    $("best-tabs").replaceChildren(...bestGenres.map(g=>el("button",{class:"chip"+(g===bestGenre?" on":""),type:"button","aria-pressed":String(g===bestGenre),onclick:()=>{ bestGenre=g; try{localStorage.setItem("finalcut-best",g);}catch(e){} render(); }}, g)));
+    const avgOf = i=>agg[i.id].sum/agg[i.id].n;
+    const best = rated.filter(i=>bestGenre==="Alle"||(i.cats||[]).includes(bestGenre))
+      .sort((a,b)=>(avgOf(b)-avgOf(a))||(agg[b.id].n-agg[a.id].n)||a.title.localeCompare(b.title,"de")).slice(0,10);
+    const B = $("best"); B.replaceChildren();
+    if(!best.length) B.append(el("div",{class:"empty"},"Noch keine Bewertungen. Tippe in der Liste oder in einer Karte auf die Sterne, dann erscheinen hier die besten Titel."));
+    best.forEach((i,k)=>B.append(tappable(el("div",{class:"slot"},
+      el("div",{class:"num"},String(k+1)), coverEl(i),
+      el("div",{class:"t"}, i.title, yr(i), el("div",{class:"kind",style:"font-weight:400"}, (i.cats||[]).slice(0,3).join(", "))),
+      el("div",{class:"bscore"}, el("b",{},fmtAvg(avgOf(i))), el("span",{}, "★ · "+agg[i.id].n+(agg[i.id].n===1?" Stimme":" Stimmen")))), i)));
+
     // Empfehlung der Woche
     const WK = $("weekly"); WK.replaceChildren();
     const wp = weeklyPick();
@@ -610,9 +646,12 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
         i.releaseDate? el("span",{class:"kind"}, (i.releaseNote? i.releaseNote+" · ":"")+fmtDate(i.releaseDate)) : null,
         (i.media||[]).map(m=>el("span",{class:"tag own"},m)),
         (i.streams||[]).map(s=>el("span",{class:"tag"},s)));
+      const qr = el("div",{class:"qrate",role:"group","aria-label":"Deine Bewertung für "+i.title},
+        [1,2,3,4,5].map(n=>el("button",{class:"qstar",type:"button","aria-label":n+" von 5 Sternen","aria-pressed":String((myScores[i.id]||0)>=n),onclick:()=>rate(i.id,n)},"★")),
+        myScores[i.id]? el("span",{class:"qlbl"},"Deine Wertung") : el("span",{class:"qlbl"},"Bewerten"));
       L.append(tappable(el("div",{class:"item"},
         el("button",{class:"star",type:"button","aria-pressed":String(!!i.favorite),"aria-label":"Favorit",disabled:readonly?"":null,onclick:()=>save(i.id,{favorite:!i.favorite})},"★"),
-        coverEl(i), el("div",{class:"main"}, el("div",{class:"t"},i.title, yr(i)), meta)), i));
+        coverEl(i), el("div",{class:"main"}, el("div",{class:"t"},i.title, yr(i)), meta, qr)), i));
     });
     $("add").hidden = readonly;
     if(!$("q-results").hidden) renderSearch();
