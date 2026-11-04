@@ -14,3 +14,18 @@
 --
 -- Zeitplan ansehen:   select jobname, schedule from cron.job;
 -- Abgleich pausieren: select cron.unschedule(jobname) from cron.job where jobname like 'final-cut-lb-%';
+
+-- Gelöschte Titel merken, damit der Abgleich sie nicht wieder anlegt
+create table if not exists private.lb_removed (slug text primary key, removed_at timestamptz default now());
+create or replace function private.remember_removed() returns trigger
+language plpgsql security definer set search_path = '' as $f$
+declare s text;
+begin
+  s := coalesce(substring(old.data->>'lbUri' from 'letterboxd\.com/film/([^/]+)'),
+                case when old.id like 'lb-%' then substring(old.id from 4) end);
+  if s is not null and s <> '' then insert into private.lb_removed(slug) values (s) on conflict do nothing; end if;
+  return old;
+end $f$;
+create trigger titles_remember_removed after delete on public.titles for each row execute function private.remember_removed();
+-- In private.lb_process() steht am Anfang der Schleife:
+--   continue when exists (select 1 from private.lb_removed r where r.slug = f.slug);
