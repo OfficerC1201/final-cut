@@ -400,6 +400,7 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
   const REC = {1:"Eher nicht", 2:"Geht so", 3:"Gut", 4:"Sehr gut", 5:"Unbedingt sehen"};
   const $ = id => document.getElementById(id);
   let bestGenre = "Alle"; try{ bestGenre = localStorage.getItem("finalcut-best")||"Alle"; }catch(e){}
+  let bannerErr = "";
   let sb = null, session = null, weekly = null, myScores = {}, agg = {}, rateBusy = false, ratingRows = [];
   let myName = "", askName = null;
   try{ myName = localStorage.getItem("finalcut-name")||""; }catch(e){}
@@ -692,11 +693,12 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
 
     let bannerCtl = null;
     if(assets && !ro){
-      const inp = el("input",{type:"file",id:"sh-banner",accept:"image/png,image/jpeg,image/webp,image/gif","aria-label":"Banner-Bild wählen"});
+      const inp = el("input",{type:"file",id:"sh-banner",accept:"image/*","aria-label":"Banner-Bild wählen"});
       inp.addEventListener("change",()=>{ if(inp.files[0]) setBanner(i, inp.files[0]); });
       bannerCtl = el("div",{class:"banner-ctl"},
         el("span",{class:"ghost filebtn"}, inp, bannerBusy? "Wird hochgeladen …" : (i.banner? "Banner ändern" : "Banner hinzufügen")),
-        i.banner? el("button",{class:"ghost",type:"button",onclick:()=>setBanner(i,null)},"Banner entfernen") : null);
+        i.banner? el("button",{class:"ghost",type:"button",onclick:()=>setBanner(i,null)},"Banner entfernen") : null,
+        bannerErr? el("span",{class:"err",style:"flex-basis:100%"},bannerErr) : el("span",{class:"kind",style:"flex-basis:100%"},"Wird auch als Titelbild verwendet."));
     }
     const sheet = el("div",{class:"sheet",role:"dialog","aria-modal":"true","aria-labelledby":"sh-title"},
       i.banner? el("div",{class:"banner"}, el("img",{src:i.banner, alt:""}))
@@ -820,7 +822,7 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
   async function save(id, patch){ if(!col) return; try{ await col.doc(id).update(patch); }catch(e){ handleWriteErr(e); } }
   async function remove(i){ if(!col) return; try{ await col.doc(i.id).delete(); if(i.banner && assets){ try{ await assets.delete(i.banner); }catch(e){} } }catch(e){ handleWriteErr(e); } }
   async function setBanner(i, file){
-    if(!assets || bannerBusy) return; bannerBusy = true; renderSheet();
+    if(!assets || bannerBusy) return; bannerBusy = true; bannerErr = ""; renderSheet();
     const old = i.banner;
     try{
       let id = "";
@@ -829,7 +831,7 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
       if(old){ try{ await assets.delete(old); }catch(e){} }
     }catch(e){
       const c = e && e.code;
-      setStatus(c==="too_large"? "Das Bild ist zu groß (max. 20 MB)." : c==="unsupported_type"? "Bitte ein JPG, PNG, WebP oder GIF wählen." : c==="quota_or_state"? "Der Bildspeicher ist voll." : c==="invalid_argument"? "Nur der Besitzer kann Banner ändern." : "Das Banner konnte nicht gespeichert werden.");
+      bannerErr = c==="too_large"? "Das Bild ist zu groß." : c==="unsupported_type"? "Dieses Bild konnte nicht gelesen werden. Bitte ein anderes Foto wählen." : c==="invalid_argument"? "Bitte zuerst anmelden." : "Das Bild konnte nicht hochgeladen werden. Bitte nochmal versuchen.";
     }
     bannerBusy = false; renderSheet();
   }
@@ -861,14 +863,22 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
     if(session){
       box.append(el("span",{class:"kind"},"Angemeldet"), el("button",{class:"linkbtn",type:"button",onclick:async()=>{ await sb.auth.signOut(); }},"Abmelden"));
     } else if(box.dataset.open==="1"){
-      const inp = el("input",{class:"field",type:"email",id:"login-mail",placeholder:"Deine E-Mail-Adresse",autocomplete:"email","aria-label":"E-Mail-Adresse",style:"min-width:200px;flex:1"});
-      const msg = el("span",{class:"kind",id:"login-msg"});
-      const send = async()=>{ const mail=inp.value.trim(); if(!mail){ inp.focus(); return; }
+      const mail = el("input",{class:"field",type:"email",id:"login-mail",placeholder:"E-Mail-Adresse",autocomplete:"username","aria-label":"E-Mail-Adresse",style:"min-width:180px;flex:1"});
+      const pw = el("input",{class:"field",type:"password",id:"login-pw",placeholder:"Passwort",autocomplete:"current-password","aria-label":"Passwort",style:"min-width:140px;flex:1"});
+      const msg = el("span",{class:"kind",id:"login-msg",style:"flex-basis:100%"});
+      const go = async()=>{ if(!mail.value.trim()){ mail.focus(); return; } if(!pw.value){ pw.focus(); return; }
+        msg.textContent="Melde an …";
+        const { error } = await sb.auth.signInWithPassword({ email: mail.value.trim(), password: pw.value });
+        if(error){ msg.textContent = /rate|429/i.test(error.message||"")? "Zu viele Versuche. Bitte kurz warten." : "E-Mail oder Passwort stimmt nicht."; return; }
+        box.dataset.open=""; };
+      [mail,pw].forEach(x=>x.addEventListener("keydown",ev=>{ if(ev.key==="Enter"){ ev.preventDefault(); go(); } }));
+      const viaLink = async()=>{ const m=mail.value.trim(); if(!m){ mail.focus(); msg.textContent="Bitte zuerst die E-Mail-Adresse eintragen."; return; }
         msg.textContent="Sende Link …";
-        const { error } = await sb.auth.signInWithOtp({ email: mail, options:{ shouldCreateUser:false, emailRedirectTo: location.href.split("#")[0] } });
-        msg.textContent = error? "Das hat nicht geklappt. Ist das die E-Mail-Adresse aus Supabase?" : "Prüfe dein Postfach und tippe auf den Anmelde-Link."; };
-      inp.addEventListener("keydown",ev=>{ if(ev.key==="Enter"){ ev.preventDefault(); send(); } });
-      box.append(inp, el("button",{class:"btn",type:"button",style:"padding:7px 14px",onclick:send},"Link senden"), el("button",{class:"linkbtn",type:"button",onclick:()=>{ box.dataset.open=""; renderAuth(); }},"Abbrechen"), msg);
+        const { error } = await sb.auth.signInWithOtp({ email: m, options:{ shouldCreateUser:false, emailRedirectTo: location.href.split("#")[0] } });
+        msg.textContent = error? "Das hat nicht geklappt. Bitte kurz warten und nochmal versuchen." : "Link gesendet. Öffne ihn im selben Browser, in dem du Final Cut nutzt."; };
+      box.append(mail, pw, el("button",{class:"btn",type:"button",style:"padding:7px 14px",onclick:go},"Anmelden"),
+        el("button",{class:"linkbtn",type:"button",onclick:()=>{ box.dataset.open=""; renderAuth(); }},"Abbrechen"),
+        el("button",{class:"linkbtn",type:"button",onclick:viaLink},"Passwort vergessen? Link per E-Mail"), msg);
     } else {
       box.append(el("button",{class:"linkbtn",type:"button",onclick:()=>{ box.dataset.open="1"; renderAuth(); const f=$("login-mail"); if(f) f.focus(); }},"Anmelden zum Bearbeiten"));
     }
@@ -900,13 +910,31 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
       items.push(toItem({id, data})); render();
     }
   };
+  // Bild laden (auch HEIC vom iPhone), auf max. 1920 px verkleinern und als JPEG speichern
+  function shrinkImage(file){
+    return new Promise((resolve, reject)=>{
+      const url = URL.createObjectURL(file); const img = new Image();
+      img.onload = ()=>{ try{
+          const max = 1920, sc = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+          const w = Math.max(1, Math.round(img.naturalWidth*sc)), h = Math.max(1, Math.round(img.naturalHeight*sc));
+          const c = document.createElement("canvas"); c.width = w; c.height = h;
+          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          c.toBlob(b=>{ URL.revokeObjectURL(url); b? resolve(b) : reject(new Error("toBlob")); }, "image/jpeg", 0.85);
+        }catch(e){ URL.revokeObjectURL(url); reject(e); } };
+      img.onerror = ()=>{ URL.revokeObjectURL(url); reject(new Error("decode")); };
+      img.src = url;
+    });
+  }
   const bannerStore = {
     async upload(file){
-      if(file.size > 20*1024*1024) throw {code:"too_large"};
-      if(!/^image\/(png|jpe?g|webp|gif)$/.test(file.type)) throw {code:"unsupported_type"};
-      const ext = (file.type.split("/")[1]||"jpg").replace("jpeg","jpg");
+      if(file.type && !/^image\//.test(file.type) && !/\.(heic|heif)$/i.test(file.name||"")) throw {code:"unsupported_type"};
+      let blob = file, type = file.type || "image/jpeg";
+      try { blob = await shrinkImage(file); type = "image/jpeg"; }
+      catch(e){ if(!/^image\/(png|jpe?g|webp|gif)$/.test(file.type)) throw {code:"unsupported_type"}; }
+      if(blob.size > 20*1024*1024) throw {code:"too_large"};
+      const ext = type==="image/jpeg"? "jpg" : (type.split("/")[1]||"jpg");
       const path = (crypto.randomUUID? crypto.randomUUID() : Date.now().toString(36)) + "." + ext;
-      const { error } = await sb.storage.from("banners").upload(path, file, { contentType:file.type, upsert:false });
+      const { error } = await sb.storage.from("banners").upload(path, blob, { contentType:type, upsert:false });
       if(error) throw {code:"upstream_error"};
       return { id: sb.storage.from("banners").getPublicUrl(path).data.publicUrl };
     },
