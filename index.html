@@ -182,6 +182,12 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
 .banner-ctl{display:flex;flex-wrap:wrap;gap:8px}
 .ghead{font-family:var(--display);font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin:18px 0 0;padding:0 0 6px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:8px;color:var(--accent)}
 .ghead .count{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.hero{margin:0 0 18px;border-radius:14px;overflow:hidden;aspect-ratio:16/6;background:var(--surface);border:1px solid var(--line)}
+.hero img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-ctl,.wk-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.pick-list{display:flex;flex-direction:column;gap:2px;max-height:min(40vh,320px);overflow:auto;border:1px solid var(--line);border-radius:10px;padding:6px}
+.pick-cur{display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:center}
+.pick-cur .cover{width:48px;font-size:16px}
 .wk-card{display:grid;grid-template-columns:minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .wk-card .wk-art{margin:0;aspect-ratio:16/6;border-radius:0;padding:0}
 .wk-card .wk-art img{width:100%;height:100%;object-fit:cover;display:block}
@@ -282,6 +288,7 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
 <body>
 <div class="wrap">
   <header>
+    <div id="hero"></div>
     <h1>Final Cut</h1>
     <p>Filme und Serien sortieren, Favoriten markieren, Release-Termine im Blick behalten.</p>
     <div class="auth" id="auth"></div>
@@ -401,14 +408,14 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
   const $ = id => document.getElementById(id);
   let bestGenre = "Alle"; try{ bestGenre = localStorage.getItem("finalcut-best")||"Alle"; }catch(e){}
   let bannerErr = "";
-  let sb = null, session = null, weekly = null, myScores = {}, agg = {}, rateBusy = false, ratingRows = [];
+  let sb = null, session = null, weekly = null, site = {}, heroBusy = false, heroErr = "", pick = null, myScores = {}, agg = {}, rateBusy = false, ratingRows = [];
   let myName = "", askName = null;
   try{ myName = localStorage.getItem("finalcut-name")||""; }catch(e){}
   const deviceId = (()=>{ let d=""; try{ d=localStorage.getItem("finalcut-device")||""; }catch(e){} if(!d){ d=(crypto.randomUUID? crypto.randomUUID() : String(Math.random()).slice(2)+Date.now()); try{ localStorage.setItem("finalcut-device",d); }catch(e){} } return d; })();
   function isoWeek(d){ const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())); const day=t.getUTCDay()||7; t.setUTCDate(t.getUTCDate()+4-day); const y0=new Date(Date.UTC(t.getUTCFullYear(),0,1)); return [t.getUTCFullYear(), Math.ceil(((t-y0)/86400000+1)/7)]; }
   function weeklyPick(){
     const [y,w] = isoWeek(new Date());
-    if(weekly && weekly.id && weekly.week===y+"-"+w){ const i=items.find(x=>x.id===weekly.id); if(i) return {i, note:weekly.note||"", manual:true, w}; }
+    if(weekly && weekly.id){ const i=items.find(x=>x.id===weekly.id); if(i) return {i, note:weekly.note||"", manual:true, w}; }
     let pool = items.filter(i=>i.rec>=4); if(!pool.length) pool = items.filter(i=>i.favorite||i.topRank>0); if(!pool.length) pool = items.filter(i=>i.status==="seen");
     if(!pool.length) return null;
     pool = pool.slice().sort((a,b)=>a.id.localeCompare(b.id));
@@ -538,6 +545,14 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
         )), i));
     }
 
+    if(!readonly && sb){
+      WK.append(el("div",{class:"wk-ctl"},
+        el("button",{class:"ghost",type:"button",onclick:()=>openPicker()}, wp? "Empfehlung ändern" : "Empfehlung festlegen"),
+        wp && wp.manual? el("button",{class:"ghost",type:"button",onclick:()=>setWeekly(null)},"Wieder automatisch wählen") : null,
+        el("span",{class:"kind"}, wp && wp.manual? "Von dir ausgewählt – bleibt, bis du sie änderst." : "Wird gerade automatisch gewählt.")));
+    }
+    renderHero();
+
     // Übersicht
     const nF = items.filter(i=>i.kind!=="serie").length, nS = items.length-nF;
     const tot = (n,l,k)=>el("button",{class:"tot"+((view.kind||"all")===k?" on":""),type:"button","aria-pressed":String((view.kind||"all")===k),onclick:()=>{ view.kind=k; const r=document.querySelector(`input[name="vk"][value="${k}"]`); if(r) r.checked=true; persist(); render(); $("list").scrollIntoView({behavior:"smooth",block:"start"}); }}, el("b",{},String(n)), el("span",{},l));
@@ -666,7 +681,7 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
   // ---- Detailansicht ----
   function openSheet(id){ openId = id; sheetConfirm = false; renderSheet(true); }
   function closeSheet(){ const last = openId; openId = null; renderSheet(); const n=document.querySelector(`[data-focus="${last}"]`); if(n) n.focus(); }
-  document.addEventListener("keydown", ev=>{ if(ev.key==="Escape" && openId) closeSheet(); });
+  document.addEventListener("keydown", ev=>{ if(ev.key==="Escape"){ if(pick) closePicker(); else if(openId) closeSheet(); } });
   let draft = null;
   function renderSheet(fresh){
     let host = $("sheet-host");
@@ -751,7 +766,7 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
       el("div",{class:"foot"},
         el("div",{class:"row",style:"display:flex;flex-wrap:wrap;gap:12px;align-items:center"},
           lb? el("a",{href:lb,target:"_blank",rel:"noopener"},"Auf Letterboxd ansehen ↗") : null,
-          ro? null : el("button",{class:"ghost",type:"button",onclick:()=>setWeekly(i)}, (weekly&&weekly.id===i.id&&weekly.week===isoWeek(new Date()).join("-"))? "✓ Empfehlung der Woche" : "Zur Empfehlung der Woche machen")),
+          ro? null : el("button",{class:"ghost",type:"button",onclick:()=>{ if(weekly&&weekly.id===i.id) setWeekly(null); else { closeSheet(); openPicker(i.id); } }}, (weekly&&weekly.id===i.id)? "✓ Empfehlung der Woche" : "Zur Empfehlung der Woche machen")),
         ro? null : el("button",{class:"del"+(sheetConfirm?" confirm":""),type:"button",onclick:async()=>{
           if(!sheetConfirm){ sheetConfirm=true; renderSheet(); return; }
           const t=i; closeSheet(); await remove(t); }}, sheetConfirm? "Wirklich löschen?" : "Aus dem Regal löschen")));
@@ -810,14 +825,84 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
     if(e && e.code==="invalid_argument"){ setStatus("Nicht gespeichert: Bitte melde dich an, um Titel zu bearbeiten."); }
     else setStatus("Speichern hat nicht geklappt. Bitte nochmal versuchen.");
   }
-  async function setWeekly(i){
+  async function setWeekly(id, note){
     if(!sb) return;
-    const week = isoWeek(new Date()).join("-");
-    const on = weekly&&weekly.id===i.id&&weekly.week===week;
-    const value = on? {id:"", week:"", note:""} : {id:i.id, week, note:"", setAt:new Date().toISOString()};
+    const value = id? {id, note:(note||"").trim(), week:isoWeek(new Date()).join("-"), setAt:new Date().toISOString()} : {id:"", note:"", week:""};
     weekly = value; render();
     const { error } = await sb.from("meta").upsert({key:"weekly", value, updated_at:new Date().toISOString()});
     if(error) handleWriteErr({code: error.code==="42501"? "invalid_argument" : "x"});
+  }
+  // Auswahl für die Empfehlung der Woche
+  function openPicker(id){
+    const cur = weekly&&weekly.id? weekly : null;
+    pick = { id: id || (cur&&cur.id) || "", note: (cur && (!id || id===cur.id))? (cur.note||"") : "", q:"" };
+    renderPicker(true);
+  }
+  function closePicker(){ pick = null; const h=$("pick-host"); if(h) h.remove(); }
+  function renderPicker(fresh){
+    let host = $("pick-host");
+    if(!pick){ if(host) host.remove(); return; }
+    if(!host){ host = el("div",{id:"pick-host",class:"sheet-bg",onclick:ev=>{ if(ev.target===host) closePicker(); }}); document.body.append(host); }
+    const sel = items.find(x=>x.id===pick.id);
+    const q = el("input",{class:"field",type:"search",id:"pick-q",placeholder:"Titel suchen …","aria-label":"Titel suchen",autocomplete:"off",style:"width:100%"}); q.value = pick.q;
+    const list = el("div",{class:"pick-list",role:"listbox","aria-label":"Titel"});
+    const fill = ()=>{
+      const t = pick.q.trim().toLowerCase();
+      let res = items.filter(x=>!t || x.title.toLowerCase().includes(t));
+      res.sort((a,b)=> t? (a.title.toLowerCase().startsWith(t)?0:1)-(b.title.toLowerCase().startsWith(t)?0:1) || a.title.localeCompare(b.title,"de") : (b.rec||0)-(a.rec||0) || a.title.localeCompare(b.title,"de"));
+      list.replaceChildren(...res.slice(0,60).map(x=>el("button",{class:"q-item",type:"button",role:"option","aria-selected":String(x.id===pick.id),onclick:()=>{ pick.id=x.id; renderPicker(); }},
+        coverEl(x), el("div",{}, el("div",{class:"t"}, x.title, yr(x)), el("span",{class:"kind"}, kindLabel(x.kind))))));
+      if(!res.length) list.append(el("div",{class:"q-note"},"Kein Titel gefunden."));
+    };
+    q.addEventListener("input",()=>{ pick.q=q.value; fill(); });
+    fill();
+    const ta = el("textarea",{id:"pick-note",maxlength:"600",placeholder:"Warum gerade diese Woche? (optional)","aria-label":"Dein Text zur Empfehlung"}); ta.value = pick.note;
+    ta.addEventListener("input",()=>{ pick.note = ta.value; });
+    const sheet = el("div",{class:"sheet",role:"dialog","aria-modal":"true","aria-labelledby":"pick-title"},
+      el("div",{style:"display:flex;justify-content:space-between;align-items:center;gap:12px"},
+        el("h2",{id:"pick-title"},"Empfehlung der Woche"),
+        el("button",{class:"close",type:"button","aria-label":"Schließen",onclick:closePicker},"×")),
+      el("div",{class:"blk"}, el("span",{class:"label-sm"},"Ausgewählt"),
+        sel? el("div",{class:"pick-cur"}, coverEl(sel), el("div",{}, el("div",{class:"t",style:"font-weight:600"}, sel.title, yr(sel)), el("span",{class:"kind"}, kindLabel(sel.kind))))
+           : el("span",{class:"kind"},"Noch nichts ausgewählt – such unten einen Titel aus.")),
+      el("div",{class:"blk"}, el("span",{class:"label-sm"},"Titel wählen"), q, list),
+      el("div",{class:"blk"}, el("span",{class:"label-sm"},"Dein Text"), ta,
+        el("span",{class:"kind"},"Ohne Text wird dein Empfehlungstext aus der Karte angezeigt.")),
+      el("div",{class:"row",style:"display:flex;gap:8px;flex-wrap:wrap"},
+        el("button",{class:"btn",type:"button",disabled:sel?null:"",onclick:async()=>{ const id=pick.id, n=pick.note; closePicker(); await setWeekly(id, n); }},"Speichern"),
+        el("button",{class:"ghost",type:"button",onclick:closePicker},"Abbrechen")));
+    host.replaceChildren(sheet);
+    if(fresh) q.focus({preventScroll:true});
+  }
+  // Seitenbanner oben
+  function renderHero(){
+    const H = $("hero"); if(!H) return; H.replaceChildren();
+    if(site.banner) H.append(el("div",{class:"hero"}, el("img",{src:site.banner,alt:""})));
+    if(!readonly && assets){
+      const inp = el("input",{type:"file",accept:"image/*","aria-label":"Seitenbanner wählen"});
+      inp.addEventListener("change",()=>{ if(inp.files[0]) setHero(inp.files[0]); });
+      H.append(el("div",{class:"hero-ctl",style:site.banner?"margin:-8px 0 14px":"margin:0 0 14px"},
+        el("span",{class:"ghost filebtn"}, inp, heroBusy? "Wird hochgeladen …" : (site.banner? "Seitenbanner ändern" : "Seitenbanner hinzufügen")),
+        site.banner? el("button",{class:"ghost",type:"button",onclick:()=>setHero(null)},"Seitenbanner entfernen") : null,
+        heroErr? el("span",{class:"err"},heroErr) : null));
+    }
+  }
+  async function setHero(file){
+    if(!assets || heroBusy) return; heroBusy = true; heroErr = ""; renderHero();
+    const old = site.banner;
+    try{
+      let url = "";
+      if(file){ url = (await assets.upload(file)).id; }
+      const value = Object.assign({}, site, {banner:url});
+      const { error } = await sb.from("meta").upsert({key:"site", value, updated_at:new Date().toISOString()});
+      if(error) throw {code: error.code==="42501"? "invalid_argument" : "x"};
+      site = value;
+      if(old){ try{ await assets.delete(old); }catch(e){} }
+    }catch(e){
+      const c = e && e.code;
+      heroErr = c==="unsupported_type"? "Dieses Bild konnte nicht gelesen werden." : c==="too_large"? "Das Bild ist zu groß." : c==="invalid_argument"? "Bitte zuerst anmelden." : "Hochladen hat nicht geklappt. Bitte nochmal versuchen.";
+    }
+    heroBusy = false; renderHero();
   }
   async function save(id, patch){ if(!col) return; try{ await col.doc(id).update(patch); }catch(e){ handleWriteErr(e); } }
   async function remove(i){ if(!col) return; try{ await col.doc(i.id).delete(); if(i.banner && assets){ try{ await assets.delete(i.banner); }catch(e){} } }catch(e){ handleWriteErr(e); } }
@@ -944,12 +1029,13 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
   async function loadAll(){
     const [t, m, r] = await Promise.all([
       sb.from("titles").select("id,data").limit(5000),
-      sb.from("meta").select("key,value").eq("key","weekly"),
+      sb.from("meta").select("key,value").in("key",["weekly","site"]),
       sb.from("ratings").select("title_id,device_id,name,stars").limit(20000)
     ]);
     if(t.error) throw t.error;
     items = (t.data||[]).map(toItem);
-    weekly = (m.data&&m.data[0]) ? m.data[0].value : null;
+    const mm = {}; (m.data||[]).forEach(r=>mm[r.key]=r.value);
+    weekly = mm.weekly || null; site = mm.site || {};
     ratingRows = r.data||[]; recalc();
   }
   let reloadTimer = null;
