@@ -19,9 +19,7 @@ Plane etwa 30 Minuten ein.
 | `config.js` | Hier trägst du deine Supabase-Zugangsdaten ein |
 | `icon.svg`, `icon-180.png`, `icon-512.png`, `manifest.webmanifest` | App-Symbol für den Home-Bildschirm |
 | `supabase/schema.sql` | Legt die Datenbank an |
-| `supabase/seed.sql` | Spielt deine 183 Titel ein |
 | `supabase/letterboxd-sync.sql` | Beschreibung des täglichen Letterboxd-Abgleichs |
-| `data/titles-backup.json` | Sicherungskopie aller Titel |
 
 ---
 
@@ -105,7 +103,10 @@ Ist bereits erledigt: Der Abgleich läuft direkt in Supabase, jeden Morgen gegen
 
 ## Freunden schicken
 
-Einfach die Adresse schicken. Ohne Anmeldung können sie alles ansehen, Karten öffnen und mit ihrem Namen Sterne vergeben. Bearbeiten kannst nur du.
+Final Cut ist privat: Die Filme erscheinen nur über den geheimen Link mit `#k=…` am Ende. Schick genau diesen Link an deine Freunde. Sie brauchen kein Konto, sehen alles und können mit ihrem Namen Sterne vergeben. Bearbeiten kannst nur du. Der Link merkt sich auf jedem Gerät, danach reicht auch die normale Adresse.
+
+Neuen Link erzeugen (alter wird ungültig): im Supabase SQL Editor
+`update private.settings set v = 'NEUER-SCHLUESSEL' where k = 'access_key';`
 
 ## Gut zu wissen
 
