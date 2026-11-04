@@ -69,7 +69,7 @@ Deno.serve(async () => {
     let partial = "";
     for (let page = 1; page <= 60; page++) {
       let html: string | null;
-      try { html = await getHtml(`https://letterboxd.com/${USER}/films/` + (page > 1 ? `page/${page}/` : "")); }
+      try { html = await getHtml(`https://letterboxd.com/${USER}/films/by/date/` + (page > 1 ? `page/${page}/` : "")); }
       catch (e) { if (page === 1) throw e; partial = `ab Seite ${page} nicht erreichbar`; break; }
       if (!html) break;
       const f = parseFilms(html);
