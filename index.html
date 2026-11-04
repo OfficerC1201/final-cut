@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Meine Filme und Serien: Empfehlungen, Top 10, Sammlung und Bewertungen.">
+<meta name="theme-color" content="#0e0d10">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Final Cut">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font-size:14px}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Final Cut</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: eine schmale Spalte – Eingabe, "Demnächst"-Countdown, Favoriten-Regal mit Covern, Gesamtliste */
+:root{
+  --bg:#f3f2ef; --surface:#ffffff; --line:#dcd9d2; --fg:#16151a; --muted:#6b6873;
+  --accent:#b07a12; --accent-soft:#f3e6c8; --fav:#c48a10; --danger:#b3261e; --ph:#e7e4de;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e0d10; --surface:#18161b; --line:#2b2830; --fg:#ece9e4; --muted:#8f8a96;
+  --accent:#e8b44a; --accent-soft:#2c2414; --fav:#f0c050; --danger:#ef7a70; --ph:#232027; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e0d10; --surface:#18161b; --line:#2b2830; --fg:#ece9e4; --muted:#8f8a96;
+  --accent:#e8b44a; --accent-soft:#2c2414; --fav:#f0c050; --danger:#ef7a70; --ph:#232027; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+h1,h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;margin:0;text-wrap:balance;line-height:1}
+h1{font-size:clamp(40px,9vw,64px);font-weight:800}
+h2{font-size:24px;font-weight:600;display:flex;align-items:baseline;gap:10px}
+h2 .count{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:0}
+header p,.sub{margin:8px 0 0;color:var(--muted)}
+.status-note{font-size:13px;color:var(--muted)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+
+/* Formular */
+form.add{display:grid;grid-template-columns:1fr auto;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.field{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 11px;min-width:0}
+#f-title{width:100%}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{padding:7px 12px;cursor:pointer;font-size:14px;color:var(--muted)}
+.seg input:checked+label{background:var(--accent-soft);color:var(--fg);font-weight:600}
+.seg input:focus-visible+label{outline:2px solid var(--accent);outline-offset:-2px}
+.btn{background:var(--accent);color:#16151a;border:0;border-radius:6px;padding:9px 16px;font-weight:600;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn[disabled]{opacity:.5;cursor:default}
+.ghost{background:none;border:1px solid var(--line);border-radius:6px;padding:7px 10px;cursor:pointer;color:var(--muted);font-size:14px}
+.ghost:hover{color:var(--fg);border-color:var(--muted)}
+.label-sm{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.filebtn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:6px}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.filebtn:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.picked{font-size:13px;color:var(--muted)}
+
+/* Cover */
+.cover{background:var(--ph);border-radius:4px;overflow:hidden;aspect-ratio:2/3;max-width:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--display);font-weight:800;text-transform:uppercase}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Demnächst */
+.upcoming{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.up{display:grid;grid-template-columns:86px 36px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.up .cover{width:36px;font-size:14px}
+.days{font-family:var(--display);font-size:30px;font-weight:800;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.days small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400;margin-top:3px;letter-spacing:0}
+.up .t{font-weight:600;min-width:0}
+.up .n{color:var(--muted);font-size:14px}
+.up .d{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.up.past .days{color:var(--muted)}
+
+/* Favoriten-Regal */
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}
+.poster{min-width:0;display:flex;flex-direction:column;gap:6px}
+.poster .cover{width:100%;font-size:28px;box-shadow:0 0 0 1px var(--line)}
+.poster .t{font-weight:600;font-size:14px;line-height:1.25;overflow-wrap:anywhere}
+.kind{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* Liste */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:auto 44px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.item .cover{width:44px;font-size:16px}
+.item .main{min-width:0}
+.item .t{font-weight:600;overflow-wrap:anywhere}
+.item .t .yr{font-weight:400;color:var(--muted);font-family:var(--mono);font-size:13px;margin-left:6px}
+.item .meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:4px}
+.star{background:none;border:0;cursor:pointer;font-size:22px;line-height:1;color:var(--line);padding:4px}
+.star[aria-pressed="true"]{color:var(--fav)}
+.star:hover{color:var(--fav)}
+.pill{font-size:12px;padding:3px 8px;border-radius:99px;border:1px solid var(--line);background:var(--bg);cursor:pointer}
+.pill.s-watchlist{color:var(--muted)}
+.pill.s-watching{border-color:var(--accent);color:var(--accent)}
+.pill.s-seen{background:var(--accent-soft);border-color:transparent}
+.mini{font-family:var(--mono);font-size:12px;color:var(--muted);background:none;border:1px dashed var(--line);border-radius:5px;padding:3px 7px;cursor:pointer;text-decoration:none;position:relative;overflow:hidden}
+.mini:hover{color:var(--fg)}
+.mini input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.rating{font-family:var(--mono);font-size:12px;color:var(--fav)}
+.edit-date{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px}
+.edit-date .field{padding:5px 8px;font-size:13px}
+.del{background:none;border:0;color:var(--muted);cursor:pointer;font-size:13px;padding:4px 6px}
+.del:hover,.del.confirm{color:var(--danger)}
+.empty{color:var(--muted);padding:18px 0;border-bottom:1px solid var(--line)}
+.err{color:var(--danger);font-size:13px}
+
+/* Top 10 */
+.top{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.slot{display:grid;grid-template-columns:52px 40px 1fr auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.slot .num{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;color:var(--accent);text-align:right;font-variant-numeric:tabular-nums}
+.slot .cover{width:40px;font-size:15px}
+.slot .t{font-weight:600;min-width:0;overflow-wrap:anywhere}
+.slot.emptyslot .num{color:var(--line)}
+.slot.emptyslot .t{color:var(--muted);font-weight:400}
+.slot .ctl{display:flex;gap:4px}
+.ic{background:none;border:1px solid var(--line);border-radius:5px;width:30px;height:30px;cursor:pointer;color:var(--muted);font-size:14px;line-height:1}
+.ic:hover:not([disabled]){color:var(--fg);border-color:var(--muted)}
+.ic[disabled]{opacity:.35;cursor:default}
+.top-add{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+@media (max-width:520px){.slot{grid-template-columns:40px 36px 1fr}.slot .num{font-size:30px}.slot .cover{width:36px}.slot .ctl{grid-column:3}}
+
+/* Empfehlungen */
+.recs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.rec{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+.rec .cover{width:44px;font-size:16px}
+.rec .t{font-weight:600;overflow-wrap:anywhere}
+.rec .note{margin:4px 0 0;color:var(--fg);font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;max-width:65ch}
+.meter{display:inline-flex;gap:3px;vertical-align:middle}
+.meter i{width:14px;height:6px;border-radius:2px;background:var(--line)}
+.meter i.on{background:var(--accent)}
+.reclbl{font-size:12px;color:var(--muted);margin-left:8px}
+.recbtn{display:inline-flex;align-items:center;gap:6px}
+.rec-edit{margin-top:8px;display:flex;flex-direction:column;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px}
+.levels{display:flex;flex-wrap:wrap;gap:6px}
+.lvl{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:5px 9px;font-size:13px;cursor:pointer;color:var(--muted)}
+.lvl[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#16151a;font-weight:600}
+.rec-edit textarea{font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px;min-height:72px;resize:vertical;width:100%}
+.rec-edit .row{display:flex;flex-wrap:wrap;gap:8px}
+
+@media (max-width:520px){
+  form.add{grid-template-columns:1fr}
+  .up{grid-template-columns:64px 32px 1fr}
+  .up .cover{width:32px}
+  .up .d{grid-column:3}
+  .item{grid-template-columns:auto 40px 1fr}
+  .item .cover{width:40px}
+  .item .del{grid-column:3;justify-self:start;padding-left:0}
+}
+
+/* Generierte Poster */
+.cover.gen,.banner.gen{color:#f6f1e8;background:
+  radial-gradient(120% 90% at 85% 10%,hsl(var(--h2) 75% 58% / .75),transparent 60%),
+  radial-gradient(90% 80% at 10% 100%,hsl(var(--h1) 70% 45% / .8),transparent 65%),
+  linear-gradient(165deg,hsl(var(--h1) 45% 26%),hsl(var(--h2) 50% 9%));
+  font-family:var(--display);text-transform:uppercase;line-height:1;position:relative;isolation:isolate}
+.cover.gen::after,.banner.gen::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.18;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.cover.gen > *,.banner.gen > *{position:relative}
+.cover.gen.has-img::after{display:none}
+.banner.gen{display:flex;align-items:flex-end;padding:0 max(18px,env(safe-area-inset-right,0px)) 14px}
+.banner.gen span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;opacity:.8}
+.cover.gen.big{flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:10% 9%;font-size:clamp(15px,3.6vw,20px);font-weight:800;text-align:left;overflow-wrap:anywhere;gap:6px}
+.banner{margin:-20px calc(-1 * max(18px,env(safe-area-inset-right,0px))) 0;aspect-ratio:16/7;max-width:none;overflow:hidden;background:var(--ph)}
+.banner img{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:640px){.banner{border-radius:14px 14px 0 0}}
+.banner-ctl{display:flex;flex-wrap:wrap;gap:8px}
+.ghead{font-family:var(--display);font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin:18px 0 0;padding:0 0 6px;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:8px;color:var(--accent)}
+.ghead .count{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.wk-card{display:grid;grid-template-columns:minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.wk-card .wk-art{margin:0;aspect-ratio:16/6;border-radius:0;padding:0}
+.wk-card .wk-art img{width:100%;height:100%;object-fit:cover;display:block}
+.wk-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.wk-eyebrow{color:var(--accent)}
+.wk-title{font-family:var(--display);font-size:clamp(32px,7vw,52px);font-weight:800;text-transform:uppercase;line-height:.95;margin:0;overflow-wrap:anywhere}
+.wk-note{margin:0;font-size:16px;line-height:1.5;max-width:60ch}
+@media (min-width:640px){.wk-card{grid-template-columns:42% 1fr}.wk-card .wk-art{aspect-ratio:auto;min-height:220px}}
+.avg{font-family:var(--mono);font-size:12px;color:var(--fav)}
+.avg.big{font-size:16px;font-weight:500}
+.rate{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.rstar{background:none;border:0;cursor:pointer;font-size:26px;line-height:1;color:var(--line);padding:2px}
+.rstar[aria-pressed="true"]{color:var(--fav)}
+.rate:hover .rstar{color:var(--fav)}
+.rate .rstar:hover ~ .rstar{color:var(--line)}
+.auth{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;font:inherit;font-size:13px;text-decoration:underline;text-underline-offset:3px}
+.namebox{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.who{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:4px;max-width:360px}
+.who li{display:flex;justify-content:space-between;gap:12px;font-size:14px;border-bottom:1px dashed var(--line);padding-bottom:3px}
+.overview{display:flex;flex-direction:column;gap:14px}
+.totals{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tot{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:2px;color:var(--fg)}
+.tot b{font-family:var(--display);font-size:clamp(30px,7vw,42px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.tot span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.tot:hover,.tot.on{border-color:var(--accent)}
+.tot.on b{color:var(--accent)}
+.gtiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.gtile{position:relative;isolation:isolate;overflow:hidden;border:0;border-radius:8px;padding:12px;min-height:64px;cursor:pointer;color:#f6f1e8;text-align:left;display:flex;justify-content:space-between;align-items:flex-end;gap:8px;
+  background:radial-gradient(110% 90% at 90% 0%,hsl(var(--h2) 75% 58% / .7),transparent 60%),linear-gradient(160deg,hsl(var(--h1) 45% 28%),hsl(var(--h2) 50% 10%))}
+.gtile .gn{font-family:var(--display);font-size:18px;font-weight:600;text-transform:uppercase;line-height:1.05;overflow-wrap:anywhere}
+.gtile .gc{font-family:var(--mono);font-size:12px;opacity:.85}
+.gtile:hover{filter:brightness(1.12)}
+.gtile.on{outline:2px solid var(--accent);outline-offset:2px}
+.tag{font-size:11px;padding:2px 7px;border-radius:4px;border:1px solid var(--line);color:var(--muted);font-family:var(--mono);letter-spacing:.02em}
+.tag.own{border-color:var(--accent);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--bg);cursor:pointer;color:var(--fg)}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.desc{margin:0;color:var(--fg);max-width:65ch;line-height:1.55}
+.cover.gen.big small{font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.08em;opacity:.75}
+.tap{cursor:pointer}
+.tap:hover .t{color:var(--accent)}
+.item.tap,.slot.tap,.rec.tap,.up.tap{border-radius:4px}
+.tap:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Detail-Ansicht */
+.sheet-bg{position:fixed;inset:0;z-index:50;background:rgba(10,9,12,.55);display:flex;align-items:flex-end;justify-content:center;
+  padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) 0 env(safe-area-inset-left,0px)}
+@media (min-width:640px){.sheet-bg{align-items:center;padding:24px}}
+.sheet{background:var(--surface);color:var(--fg);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:14px 14px 0 0;
+  padding:20px max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:18px}
+@media (min-width:640px){.sheet{border-radius:14px}}
+.sheet-head{display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:start}
+.sheet-head .cover{width:110px}
+.sheet-head h3{font-family:var(--display);font-size:30px;font-weight:800;text-transform:uppercase;line-height:1;margin:2px 0 8px;overflow-wrap:anywhere;text-wrap:balance}
+.close{background:none;border:1px solid var(--line);border-radius:6px;width:34px;height:34px;cursor:pointer;color:var(--muted);font-size:18px}
+.close:hover{color:var(--fg)}
+.blk{display:flex;flex-direction:column;gap:8px}
+.blk .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.sheet textarea{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;min-height:80px;resize:vertical;width:100%}
+.favtoggle{display:inline-flex;align-items:center;gap:6px}
+.favtoggle[aria-pressed="true"]{border-color:var(--fav);color:var(--fav)}
+.sheet .foot{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:420px){.sheet-head{grid-template-columns:84px 1fr auto}.sheet-head .cover{width:84px}.sheet-head h3{font-size:24px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Final Cut</h1>
+    <p>Filme und Serien sortieren, Favoriten markieren, Release-Termine im Blick behalten.</p>
+    <div class="auth" id="auth"></div>
+    <div class="status-note" id="status">Liste wird geladen …</div>
+  </header>
+
+  <section class="weekly" id="weekly" aria-label="Empfehlung der Woche"></section>
+
+  <section class="overview" aria-label="Übersicht">
+    <div class="totals" id="totals"></div>
+    <div class="gtiles" id="gtiles"></div>
+  </section>
+
+  <form class="add" id="add" autocomplete="off">
+    <input class="field" id="f-title" placeholder="Titel, z. B. Severance" required maxlength="120" aria-label="Titel">
+    <button class="btn" type="submit" id="f-submit">Hinzufügen</button>
+    <div class="row">
+      <span class="seg" role="radiogroup" aria-label="Art">
+        <input type="radio" name="kind" id="k-film" value="film" checked><label for="k-film">Film</label>
+        <input type="radio" name="kind" id="k-serie" value="serie"><label for="k-serie">Serie</label>
+      </span>
+      <select class="field" id="f-status" aria-label="Status">
+        <option value="watchlist">Will ich sehen</option>
+        <option value="watching">Schaue gerade</option>
+        <option value="seen">Gesehen</option>
+      </select>
+      <label class="ghost" style="display:inline-flex;gap:6px;align-items:center"><input type="checkbox" id="f-fav"> Favorit</label>
+    </div>
+    <div class="row">
+      <span class="label-sm">Release</span>
+      <input class="field" type="date" id="f-date" aria-label="Release-Datum">
+      <input class="field" id="f-note" placeholder="z. B. Staffel 2" maxlength="60" aria-label="Was erscheint" style="flex:1;min-width:140px">
+    </div>
+    <div class="err" id="add-err" hidden></div>
+  </form>
+
+  <section>
+    <h2>Demnächst <span class="count" id="up-count"></span></h2>
+    <div class="upcoming" id="upcoming" style="margin-top:12px"></div>
+  </section>
+
+  <section>
+    <div class="toolbar">
+      <h2>Top 10</h2>
+      <span class="seg" role="radiogroup" aria-label="Top 10 anzeigen für">
+        <input type="radio" name="tk" id="tk-film" value="film" checked><label for="tk-film">Filme</label>
+        <input type="radio" name="tk" id="tk-serie" value="serie"><label for="tk-serie">Serien</label>
+      </span>
+    </div>
+    <div class="top" id="top" style="margin-top:12px"></div>
+    <div class="top-add" id="top-add"></div>
+  </section>
+
+  <section>
+    <h2>Favoriten <span class="count" id="fav-count"></span></h2>
+    <div class="shelf" id="shelf" style="margin-top:14px"></div>
+  </section>
+
+  <section>
+    <h2>Meine Empfehlungen <span class="count" id="rec-count"></span></h2>
+    <div class="recs" id="recs" style="margin-top:12px"></div>
+  </section>
+
+  <section style="display:flex;flex-direction:column;gap:12px">
+    <h2>Alle Titel <span class="count" id="all-count"></span></h2>
+    <div class="toolbar">
+      <span class="seg" role="radiogroup" aria-label="Art filtern">
+        <input type="radio" name="vk" id="vk-all" value="all" checked><label for="vk-all">Alle</label>
+        <input type="radio" name="vk" id="vk-film" value="film"><label for="vk-film">Filme</label>
+        <input type="radio" name="vk" id="vk-serie" value="serie"><label for="vk-serie">Serien</label>
+      </span>
+      <select class="field" id="vs" aria-label="Status filtern" style="padding:7px 10px">
+        <option value="all">Jeder Status</option>
+        <option value="watchlist">Will ich sehen</option>
+        <option value="watching">Schaue gerade</option>
+        <option value="seen">Gesehen</option>
+      </select>
+      <select class="field" id="vg" aria-label="Genre filtern" style="padding:7px 10px">
+        <option value="all">Alle Genres</option>
+      </select>
+      <select class="field" id="vsort" aria-label="Sortierung" style="padding:7px 10px">
+        <option value="genre">Nach Genre</option>
+        <option value="status">Nach Status</option>
+        <option value="title">Titel A–Z</option>
+        <option value="year">Neueste zuerst</option>
+      </select>
+      <select class="field" id="vw" aria-label="Wo schauen" style="padding:7px 10px"></select>
+    </div>
+    <div class="list" id="list"></div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script>
+(function(){
+  const STATUS = {watchlist:"Will ich sehen", watching:"Schaue gerade", seen:"Gesehen"};
+  const NEXT = {watchlist:"watching", watching:"seen", seen:"watchlist"};
+  const MEDIA = ["Blu-ray","4K UHD","DVD","Digital gekauft"];
+  const STREAMS = ["Netflix","Prime Video","Disney+","Apple TV+","WOW / Sky","Paramount+","RTL+","Joyn","MagentaTV","Mediathek"];
+  const REC = {1:"Eher nicht", 2:"Geht so", 3:"Gut", 4:"Sehr gut", 5:"Unbedingt sehen"};
+  const $ = id => document.getElementById(id);
+  let sb = null, session = null, weekly = null, myScores = {}, agg = {}, rateBusy = false, ratingRows = [];
+  let myName = "", askName = null;
+  try{ myName = localStorage.getItem("finalcut-name")||""; }catch(e){}
+  const deviceId = (()=>{ let d=""; try{ d=localStorage.getItem("finalcut-device")||""; }catch(e){} if(!d){ d=(crypto.randomUUID? crypto.randomUUID() : String(Math.random()).slice(2)+Date.now()); try{ localStorage.setItem("finalcut-device",d); }catch(e){} } return d; })();
+  function isoWeek(d){ const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())); const day=t.getUTCDay()||7; t.setUTCDate(t.getUTCDate()+4-day); const y0=new Date(Date.UTC(t.getUTCFullYear(),0,1)); return [t.getUTCFullYear(), Math.ceil(((t-y0)/86400000+1)/7)]; }
+  function weeklyPick(){
+    const [y,w] = isoWeek(new Date());
+    if(weekly && weekly.id && weekly.week===y+"-"+w){ const i=items.find(x=>x.id===weekly.id); if(i) return {i, note:weekly.note||"", manual:true, w}; }
+    let pool = items.filter(i=>i.rec>=4); if(!pool.length) pool = items.filter(i=>i.favorite||i.topRank>0); if(!pool.length) pool = items.filter(i=>i.status==="seen");
+    if(!pool.length) return null;
+    pool = pool.slice().sort((a,b)=>a.id.localeCompare(b.id));
+    return {i: pool[(y*53+w)%pool.length], note:"", manual:false, w};
+  }
+  function fmtAvg(a){ return a.toFixed(1).replace(".",","); }
+  async function rate(id, n){
+    if(!sb || rateBusy) return;
+    if(!myName){ askName = {id, n}; renderSheet(); return; }
+    const remove = !n || myScores[id]===n;
+    rateBusy = true;
+    ratingRows = ratingRows.filter(r=>!(r.title_id===id && r.device_id===deviceId));
+    if(!remove) ratingRows.push({title_id:id, device_id:deviceId, name:myName, stars:n});
+    recalc(); render();
+    const q = remove ? sb.from("ratings").delete().eq("title_id",id).eq("device_id",deviceId)
+                     : sb.from("ratings").upsert({title_id:id, device_id:deviceId, name:myName, stars:n, updated_at:new Date().toISOString()});
+    const { error } = await q;
+    if(error) setStatus("Deine Bewertung konnte nicht gespeichert werden. Bitte nochmal versuchen.");
+    rateBusy = false;
+  }
+  function setName(v){ myName = v.trim().slice(0,40); try{ localStorage.setItem("finalcut-name", myName); }catch(e){} ratingRows.forEach(r=>{ if(r.device_id===deviceId) r.name=myName; }); }
+  function recalc(){
+    agg = {}; myScores = {};
+    ratingRows.forEach(r=>{ const v=Number(r.stars); if(!(v>=1&&v<=5)) return; const a=agg[r.title_id]||(agg[r.title_id]={sum:0,n:0,who:[]}); a.sum+=v; a.n++; a.who.push(r); if(r.device_id===deviceId) myScores[r.title_id]=v; });
+  }
+  function avgEl(id){ const a=agg[id]; if(!a||!a.n) return null; return el("span",{class:"avg",title:`${a.n} Bewertung${a.n===1?"":"en"}`}, "★ "+fmtAvg(a.sum/a.n)+" ("+a.n+")"); }
+  let items = [], col = null, assets = null, bannerBusy = false, readonly = true, topKind = "film", topBusy = false, openId = null, sheetConfirm = false;
+  let view = {kind:"all", status:"all", genre:"all", sort:"genre"};
+  try{ const v = JSON.parse(localStorage.getItem("filmregal-view")||"null"); if(v) view = v; }catch(e){}
+  try{ const t = localStorage.getItem("filmregal-top"); if(t==="serie"||t==="film") topKind = t; }catch(e){}
+  const vkEl = document.querySelector(`input[name="vk"][value="${view.kind}"]`); if(vkEl) vkEl.checked = true;
+  $("vs").value = view.status;
+  document.querySelectorAll('input[name="tk"]').forEach(r=>{ r.checked = r.value===topKind; r.addEventListener("change",()=>{ topKind=r.value; try{localStorage.setItem("filmregal-top",topKind);}catch(e){} render(); }); });
+
+  function today(){ const d=new Date(); d.setHours(0,0,0,0); return d; }
+  function parseDate(s){ if(!s) return null; const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); }
+  function fmtDate(s){ const d=parseDate(s); return d? d.toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"numeric"}):""; }
+  function daysUntil(s){ return Math.round((parseDate(s)-today())/86400000); }
+  function el(tag, attrs, ...kids){ const e=document.createElement(tag); for(const k in attrs||{}){ if(attrs[k]==null) continue; if(k==="class") e.className=attrs[k]; else if(k.startsWith("on")) e.addEventListener(k.slice(2),attrs[k]); else e.setAttribute(k,attrs[k]); } kids.flat().forEach(c=>{ if(c==null) return; e.append(c.nodeType?c:document.createTextNode(c)); }); return e; }
+  const kindLabel = k => k==="serie"?"Serie":"Film";
+  function stars(r){ if(!r) return ""; const full=Math.floor(r), half=r-full>=.5; return "★".repeat(full)+(half?"½":""); }
+  function meter(n){ const m=el("span",{class:"meter","aria-label":`Empfehlung ${n} von 5`}); for(let k=1;k<=5;k++) m.append(el("i",{class:k<=n?"on":""})); return m; }
+  function hue(t){ let h=0; for(const c of (t||"")) h=(h*31+c.charCodeAt(0))%360; return h; }
+  const yr = i => i.year? el("span",{class:"yr"},String(i.year)) : null;
+
+  // Farbwelt je Genre: [Grundton, Akzent]
+  // Einzelgenres -> Hauptgenres
+  const CAT = {"Action":"Action","Abenteuer":"Action","Krieg":"Action","Western":"Action",
+    "Thriller":"Thriller","Krimi":"Krimi","Mystery":"Thriller",
+    "Drama":"Drama","Historie":"Drama","Musik":"Drama","Dokumentation":"Drama","TV-Film":"Drama",
+    "Komödie":"Komödie","Romantik":"Romantik","Science-Fiction":"Sci-Fi","Fantasy":"Fantasy",
+    "Horror":"Horror","Familie":"Familie","Animation":"Familie"};
+  function cats(g){ return [...new Set((g||[]).map(x=>CAT[x]||x))]; }
+  const GH = {"Sci-Fi":[255,195],"Action":[18,40],"Thriller":[190,215],"Drama":[215,250],"Komödie":[38,12],"Romantik":[340,15],"Science-Fiction":[255,195],"Horror":[355,330],"Krimi":[30,210],"Abenteuer":[95,42],"Krieg":[70,30],"Historie":[32,20],"Musik":[300,265],"Fantasy":[280,170],"Mystery":[235,275],"Familie":[200,30],"Animation":[180,45]};
+  function genVars(i){
+    const h = hue(i.title), g = (i.genres||[]).find(x=>GH[x]);
+    const [a,b] = g? GH[g] : [h,(h+40)%360];
+    const j = (h%24)-12;
+    return `--h1:${(a+j+360)%360};--h2:${(b-j+360)%360}`;
+  }
+  function coverEl(i, big){
+    const pic = i.banner || i.cover;
+    const c = el("div",{class:"cover gen"+(big?" big":"")+(pic?" has-img":""), style:genVars(i)});
+    if(pic){
+      const img = el("img",{src:pic, alt:"", loading:"lazy"});
+      img.addEventListener("error",()=>{ img.remove(); fill(); });
+      c.append(img);
+    } else fill();
+    function fill(){ if(big) c.append(el("small",{},kindLabel(i.kind)+(i.year?" · "+i.year:"")), el("span",{},i.title)); else c.textContent=(i.title||"?").charAt(0); }
+    return c;
+  }
+  // macht ein Element antippbar und öffnet die Detailansicht
+  function tappable(node, i){
+    node.classList.add("tap"); node.setAttribute("role","button"); node.setAttribute("tabindex","0");
+    node.setAttribute("aria-label", i.title+" öffnen");
+    node.addEventListener("click", ev=>{ if(ev.target.closest("button,a,select,input,textarea") && ev.target.closest("button,a,select,input,textarea")!==node) return; openSheet(i.id); });
+    node.addEventListener("keydown", ev=>{ if((ev.key==="Enter"||ev.key===" ") && ev.target===node){ ev.preventDefault(); openSheet(i.id); } });
+    return node;
+  }
+
+  function topList(kind){ return items.filter(i=>i.kind===kind && i.topRank>0).sort((a,b)=>a.topRank-b.topRank); }
+  async function writeTop(ordered){
+    if(!col || topBusy) return; topBusy = true;
+    try{ for(let n=0;n<ordered.length;n++){ const i=ordered[n]; if(i.topRank!==n+1) await col.doc(i.id).update({topRank:n+1}); } }catch(e){ handleWriteErr(e); }
+    topBusy = false;
+  }
+  async function topRemove(i){
+    if(!col || topBusy) return;
+    const rest = topList(i.kind).filter(x=>x.id!==i.id);
+    try{ await col.doc(i.id).update({topRank:0}); }catch(e){ handleWriteErr(e); return; }
+    writeTop(rest);
+  }
+  function topMove(i, dir){
+    const l = topList(i.kind); const k = l.findIndex(x=>x.id===i.id); const j = k+dir;
+    if(j<0||j>=l.length) return; [l[k],l[j]]=[l[j],l[k]]; writeTop(l);
+  }
+
+  function render(){
+    // Empfehlung der Woche
+    const WK = $("weekly"); WK.replaceChildren();
+    const wp = weeklyPick();
+    if(wp){
+      const i = wp.i, a = agg[i.id];
+      WK.append(tappable(el("div",{class:"wk-card"},
+        el("div",{class:"wk-art banner gen",style:genVars(i)}, i.banner? el("img",{src:i.banner,alt:""}) : null),
+        el("div",{class:"wk-body"},
+          el("span",{class:"label-sm wk-eyebrow"},`Empfehlung der Woche · KW ${wp.w}`),
+          el("h2",{class:"wk-title"}, i.title),
+          el("span",{class:"kind"}, [kindLabel(i.kind), i.year, (i.cats||[]).slice(0,3).join(", ")].filter(Boolean).join(" · ")),
+          wp.note? el("p",{class:"wk-note"}, "„"+wp.note+"“") : (i.recNote? el("p",{class:"wk-note"}, "„"+i.recNote+"“") : (i.desc? el("p",{class:"desc"}, i.desc) : null)),
+          el("div",{class:"meta"}, i.rec? el("span",{class:"reclbl",style:"margin:0;display:inline-flex;gap:6px;align-items:center"}, meter(i.rec), REC[i.rec]) : null, avgEl(i.id), (i.streams||[]).map(s=>el("span",{class:"tag"},s)))
+        )), i));
+    }
+
+    // Übersicht
+    const nF = items.filter(i=>i.kind!=="serie").length, nS = items.length-nF;
+    const tot = (n,l,k)=>el("button",{class:"tot"+((view.kind||"all")===k?" on":""),type:"button","aria-pressed":String((view.kind||"all")===k),onclick:()=>{ view.kind=k; const r=document.querySelector(`input[name="vk"][value="${k}"]`); if(r) r.checked=true; persist(); render(); $("list").scrollIntoView({behavior:"smooth",block:"start"}); }}, el("b",{},String(n)), el("span",{},l));
+    $("totals").replaceChildren(tot(items.length,"Titel gesamt","all"), tot(nF, nF===1?"Film":"Filme","film"), tot(nS, nS===1?"Serie":"Serien","serie"));
+    const gc = {}; items.forEach(i=>(i.cats||[]).forEach(g=>gc[g]=(gc[g]||0)+1));
+    const GT = $("gtiles"); GT.replaceChildren();
+    Object.entries(gc).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"de")).forEach(([g,n])=>{
+      const [a,b] = GH[g]||[hue(g),(hue(g)+40)%360];
+      GT.append(el("button",{class:"gtile"+(view.genre===g?" on":""),type:"button","aria-pressed":String(view.genre===g),style:`--h1:${a};--h2:${b}`,onclick:()=>{
+        view.genre = view.genre===g? "all" : g; view.sort="genre"; persist(); render(); if(view.genre!=="all") $("list").scrollIntoView({behavior:"smooth",block:"start"}); }},
+        el("span",{class:"gn"},g), el("span",{class:"gc"},String(n))));
+    });
+
+    // Demnächst
+    const up = items.filter(i=>i.releaseDate && daysUntil(i.releaseDate) >= -7).sort((a,b)=>a.releaseDate.localeCompare(b.releaseDate));
+    const U = $("upcoming"); U.replaceChildren();
+    $("up-count").textContent = up.length? up.length : "";
+    if(!up.length) U.append(el("div",{class:"empty"},"Noch keine Termine. Tipp einen Titel an und trag ein Release-Datum ein, z. B. für eine neue Staffel."));
+    up.forEach(i=>{
+      const n = daysUntil(i.releaseDate);
+      const big = n===0? "Heute" : n>0? n : "Raus";
+      const small = n===0? "erscheint" : n===1? "Tag" : n>1? "Tage" : `seit ${-n} T.`;
+      U.append(tappable(el("div",{class:"up"+(n<0?" past":"")},
+        el("div",{class:"days"}, String(big), el("small",{},small)), coverEl(i),
+        el("div",{class:"t"}, i.title, i.releaseNote? el("div",{class:"n"}, i.releaseNote):null),
+        el("div",{class:"d"}, fmtDate(i.releaseDate))), i));
+    });
+
+    // Top 10
+    const tl = topList(topKind); const T = $("top"); T.replaceChildren();
+    for(let n=1;n<=10;n++){
+      const i = tl[n-1];
+      if(!i){ T.append(el("div",{class:"slot emptyslot"}, el("div",{class:"num"},String(n)), el("div",{class:"cover"},"·"), el("div",{class:"t"},"Noch frei"))); continue; }
+      T.append(tappable(el("div",{class:"slot"}, el("div",{class:"num"},String(n)), coverEl(i),
+        el("div",{class:"t"}, i.title, yr(i)),
+        readonly? null : el("div",{class:"ctl"},
+          el("button",{class:"ic",type:"button","aria-label":"Nach oben",disabled:n===1?"":null,onclick:()=>topMove(i,-1)},"↑"),
+          el("button",{class:"ic",type:"button","aria-label":"Nach unten",disabled:n===tl.length?"":null,onclick:()=>topMove(i,1)},"↓"),
+          el("button",{class:"ic",type:"button","aria-label":"Aus Top 10 entfernen",onclick:()=>topRemove(i)},"×"))), i));
+    }
+    const TA = $("top-add"); TA.replaceChildren();
+    if(!readonly){
+      const cand = items.filter(i=>i.kind===topKind && !(i.topRank>0)).sort((a,b)=>a.title.localeCompare(b.title,"de"));
+      if(tl.length>=10) TA.append(el("span",{class:"picked"},"Deine Top 10 ist voll. Entferne einen Titel, um Platz zu machen."));
+      else if(!cand.length) TA.append(el("span",{class:"picked"}, topKind==="film"? "Trag zuerst Filme ins Regal ein, dann kannst du sie hier auswählen." : "Trag zuerst Serien ins Regal ein, dann kannst du sie hier auswählen."));
+      else {
+        const sel = el("select",{class:"field",id:"top-sel","aria-label":"Titel für die Top 10",style:"flex:1;min-width:180px;padding:7px 10px"},
+          el("option",{value:""}, topKind==="film"? "Film auswählen …" : "Serie auswählen …"),
+          cand.map(i=>el("option",{value:i.id}, i.title+(i.year?" ("+i.year+")":""))));
+        TA.append(sel, el("button",{class:"btn",type:"button",style:"padding:7px 14px",onclick:()=>{ const id=sel.value; if(id) save(id,{topRank:tl.length+1}); }},`Auf Platz ${tl.length+1} setzen`));
+      }
+    }
+
+    // Favoriten
+    const favs = items.filter(i=>i.favorite).sort((a,b)=>a.title.localeCompare(b.title,"de"));
+    const S = $("shelf"); S.replaceChildren();
+    $("fav-count").textContent = favs.length? favs.length : "";
+    if(!favs.length) S.append(el("div",{class:"empty",style:"grid-column:1/-1"},"Markier einen Titel mit ★, dann steht er hier im Regal."));
+    favs.forEach(i=>S.append(tappable(el("div",{class:"poster"}, coverEl(i,true), el("span",{class:"t"},i.title)), i)));
+
+    // Empfehlungen
+    const recs = items.filter(i=>i.rec>0).sort((a,b)=>(b.rec-a.rec)||a.title.localeCompare(b.title,"de"));
+    const R = $("recs"); R.replaceChildren();
+    $("rec-count").textContent = recs.length? recs.length : "";
+    if(!recs.length) R.append(el("div",{class:"empty"},"Noch keine Empfehlungen. Tipp einen Titel an und wähle, wie sehr du ihn empfiehlst."));
+    recs.forEach(i=>R.append(tappable(el("div",{class:"rec"}, coverEl(i),
+      el("div",{style:"min-width:0"},
+        el("div",{class:"t"}, i.title, yr(i)),
+        el("div",{}, meter(i.rec), el("span",{class:"reclbl"},REC[i.rec]+" · "+kindLabel(i.kind))),
+        i.recNote? el("p",{class:"note"},i.recNote):null)), i)));
+
+    // Liste
+    const L = $("list"); L.replaceChildren();
+    const order = {watching:0, watchlist:1, seen:2};
+    // Genre-Auswahl aus den vorhandenen Daten füllen
+    const allG = [...new Set(items.flatMap(i=>i.cats||[]))].sort((a,b)=>a.localeCompare(b,"de"));
+    const VG = $("vg"); if(view.genre!=="all" && !allG.includes(view.genre) && items.length) view.genre="all";
+    VG.replaceChildren(el("option",{value:"all"},"Alle Genres"), ...allG.map(g=>el("option",{value:g},g)));
+    VG.value = view.genre||"all"; $("vsort").value = view.sort||"genre";
+    const VW = $("vw");
+    VW.replaceChildren(el("option",{value:"all"},"Überall"), el("option",{value:"owned"},"In meiner Sammlung"), el("option",{value:"stream"},"Bei einem Streamingdienst"),
+      el("optgroup",{label:"Sammlung"}, MEDIA.map(m=>el("option",{value:"m:"+m},m))),
+      el("optgroup",{label:"Streaming"}, STREAMS.map(s=>el("option",{value:"s:"+s},s))));
+    VW.value = view.where||"all";
+    const whereOk = i=>{ const w=view.where||"all", m=i.media||[], s=i.streams||[];
+      return w==="all" || (w==="owned"&&m.length>0) || (w==="stream"&&s.length>0) || (w.startsWith("m:")&&m.includes(w.slice(2))) || (w.startsWith("s:")&&s.includes(w.slice(2))); };
+    const byT = (a,b)=>a.title.localeCompare(b.title,"de");
+    const sorter = view.sort==="status"? (a,b)=>(order[a.status]-order[b.status])||byT(a,b)
+      : view.sort==="year"? (a,b)=>((b.year||0)-(a.year||0))||byT(a,b) : byT;
+    const shown = items.filter(i=>(view.kind==="all"||i.kind===view.kind)&&(view.status==="all"||i.status===view.status)&&(!view.genre||view.genre==="all"||(i.cats||[]).includes(view.genre))&&whereOk(i))
+      .sort(sorter);
+    $("all-count").textContent = items.length? items.length : "";
+    if(!items.length) L.append(el("div",{class:"empty"},"Deine Liste ist noch leer. Oben einen Film oder eine Serie eintragen."));
+    else if(!shown.length) L.append(el("div",{class:"empty"},"Nichts in diesem Filter."));
+    const rows = [];
+    if((view.sort||"genre")==="genre"){
+      const groups = view.genre && view.genre!=="all" ? [view.genre] : allG;
+      groups.forEach(g=>{ const its = shown.filter(i=>(i.cats||[]).includes(g)); if(its.length){ rows.push({head:g, n:its.length}); its.forEach(i=>rows.push({i})); } });
+      const none = shown.filter(i=>!(i.cats||[]).length); if(none.length){ rows.push({head:"Ohne Genre", n:none.length}); none.forEach(i=>rows.push({i})); }
+    } else shown.forEach(i=>rows.push({i}));
+    rows.forEach(r=>{
+      if(r.head){ L.append(el("h3",{class:"ghead"}, r.head, el("span",{class:"count"},String(r.n)))); return; }
+      const i = r.i;
+      const meta = el("div",{class:"meta"},
+        el("span",{class:"kind"},kindLabel(i.kind)+((i.cats||[]).length? " · "+i.cats.join(", "):"")),
+        el("button",{class:"pill s-"+i.status, type:"button", title:"Status wechseln", disabled:readonly?"":null, onclick:()=>save(i.id,{status:NEXT[i.status]})}, STATUS[i.status]),
+        i.rating? el("span",{class:"rating",title:i.rating+" von 5"},stars(i.rating)) : null,
+        avgEl(i.id),
+        i.rec? el("span",{class:"reclbl",style:"margin:0;display:inline-flex;gap:6px;align-items:center"}, meter(i.rec), REC[i.rec]) : null,
+        i.releaseDate? el("span",{class:"kind"}, (i.releaseNote? i.releaseNote+" · ":"")+fmtDate(i.releaseDate)) : null,
+        (i.media||[]).map(m=>el("span",{class:"tag own"},m)),
+        (i.streams||[]).map(s=>el("span",{class:"tag"},s)));
+      L.append(tappable(el("div",{class:"item"},
+        el("button",{class:"star",type:"button","aria-pressed":String(!!i.favorite),"aria-label":"Favorit",disabled:readonly?"":null,onclick:()=>save(i.id,{favorite:!i.favorite})},"★"),
+        coverEl(i), el("div",{class:"main"}, el("div",{class:"t"},i.title, yr(i)), meta)), i));
+    });
+    $("add").hidden = readonly;
+    renderAuth();
+    renderSheet();
+  }
+
+  // ---- Detailansicht ----
+  function openSheet(id){ openId = id; sheetConfirm = false; renderSheet(true); }
+  function closeSheet(){ const last = openId; openId = null; renderSheet(); const n=document.querySelector(`[data-focus="${last}"]`); if(n) n.focus(); }
+  document.addEventListener("keydown", ev=>{ if(ev.key==="Escape" && openId) closeSheet(); });
+  let draft = null;
+  function renderSheet(fresh){
+    let host = $("sheet-host");
+    const i = items.find(x=>x.id===openId);
+    if(!i){ if(host) host.remove(); openId=null; return; }
+    if(fresh || !draft || draft.id!==i.id) draft = {id:i.id, rec:i.rec||0, recNote:i.recNote||"", releaseDate:i.releaseDate||"", releaseNote:i.releaseNote||""};
+    // Eingaben erhalten, wenn live neu gezeichnet wird
+    if(host && !fresh){ const ta=$("sh-recnote"), d=$("sh-date"), n=$("sh-note"); if(ta) draft.recNote=ta.value; if(d) draft.releaseDate=d.value; if(n) draft.releaseNote=n.value; }
+    if(!host){ host = el("div",{id:"sheet-host",class:"sheet-bg",onclick:ev=>{ if(ev.target===host) closeSheet(); }}); document.body.append(host); }
+    const ro = readonly;
+    const lb = i.lbUri || (i.kind==="film"? "https://letterboxd.com/search/films/"+encodeURIComponent(i.title)+"/" : null);
+
+    const statusSeg = el("div",{class:"row"}, ...Object.keys(STATUS).map(s=>el("button",{class:"lvl",type:"button","aria-pressed":String(i.status===s),disabled:ro?"":null,onclick:()=>save(i.id,{status:s})},STATUS[s])));
+    const toggleIn = (field, val)=>{ const cur = new Set(i[field]||[]); cur.has(val)? cur.delete(val) : cur.add(val); save(i.id,{[field]:[...cur]}); };
+    const mediaSeg = el("div",{class:"row"}, ...MEDIA.map(m=>el("button",{class:"lvl",type:"button","aria-pressed":String((i.media||[]).includes(m)),disabled:ro?"":null,onclick:()=>toggleIn("media",m)},m)));
+    const streamSeg = el("div",{class:"row"}, ...STREAMS.map(s=>el("button",{class:"lvl",type:"button","aria-pressed":String((i.streams||[]).includes(s)),disabled:ro?"":null,onclick:()=>toggleIn("streams",s)},s)));
+    const kindSeg = el("div",{class:"row"}, ...["film","serie"].map(k=>el("button",{class:"lvl",type:"button","aria-pressed":String(i.kind===k),disabled:ro?"":null,onclick:()=>save(i.id,{kind:k, topRank:0})},kindLabel(k))));
+    const lv = el("div",{class:"levels",role:"group","aria-label":"Wie sehr empfiehlst du das?"}, ...[1,2,3,4,5].map(k=>el("button",{class:"lvl",type:"button","aria-pressed":String(k===draft.rec),disabled:ro?"":null,onclick:()=>{ draft.rec = draft.rec===k?0:k; renderSheet(); }}, k+" · "+REC[k])));
+    const ta = el("textarea",{id:"sh-recnote",maxlength:"1000",placeholder:"Warum? Für wen? Was macht es besonders …","aria-label":"Dein Text zur Empfehlung",disabled:ro?"":null}); ta.value = draft.recNote;
+    const dIn = el("input",{class:"field",type:"date",id:"sh-date","aria-label":"Release-Datum",disabled:ro?"":null}); dIn.value = draft.releaseDate;
+    const nIn = el("input",{class:"field",id:"sh-note",placeholder:"z. B. Staffel 2",maxlength:"60","aria-label":"Was erscheint",style:"flex:1;min-width:140px",disabled:ro?"":null}); nIn.value = draft.releaseNote;
+    const dirty = draft.rec!==(i.rec||0) || draft.recNote.trim()!==(i.recNote||"") || draft.releaseDate!==(i.releaseDate||"") || draft.releaseNote.trim()!==(i.releaseNote||"");
+    [ta,dIn,nIn].forEach(x=>x.addEventListener("input",()=>{ draft.recNote=ta.value; draft.releaseDate=dIn.value; draft.releaseNote=nIn.value; const b=$("sh-save"); if(b) b.disabled=false; }));
+
+    let bannerCtl = null;
+    if(assets && !ro){
+      const inp = el("input",{type:"file",id:"sh-banner",accept:"image/png,image/jpeg,image/webp,image/gif","aria-label":"Banner-Bild wählen"});
+      inp.addEventListener("change",()=>{ if(inp.files[0]) setBanner(i, inp.files[0]); });
+      bannerCtl = el("div",{class:"banner-ctl"},
+        el("span",{class:"ghost filebtn"}, inp, bannerBusy? "Wird hochgeladen …" : (i.banner? "Banner ändern" : "Banner hinzufügen")),
+        i.banner? el("button",{class:"ghost",type:"button",onclick:()=>setBanner(i,null)},"Banner entfernen") : null);
+    }
+    const sheet = el("div",{class:"sheet",role:"dialog","aria-modal":"true","aria-labelledby":"sh-title"},
+      i.banner? el("div",{class:"banner"}, el("img",{src:i.banner, alt:""}))
+        : el("div",{class:"banner gen",style:genVars(i)}, el("span",{}, ((i.cats||[]).slice(0,3).join(" · ")) || kindLabel(i.kind))),
+      bannerCtl,
+      el("div",{class:"sheet-head"}, coverEl(i,true),
+        el("div",{style:"min-width:0"},
+          el("span",{class:"kind"}, kindLabel(i.kind)+(i.year?" · "+i.year:"")),
+          el("h3",{id:"sh-title"}, i.title),
+          el("div",{class:"row",style:"display:flex;flex-wrap:wrap;gap:8px;align-items:center"},
+            ro? (i.favorite? el("span",{class:"rating"},"★ Favorit") : null) : el("button",{class:"ghost favtoggle",type:"button","aria-pressed":String(!!i.favorite),onclick:()=>save(i.id,{favorite:!i.favorite})}, i.favorite? "★ Favorit" : "☆ Als Favorit"),
+            i.rating? el("span",{class:"rating"},stars(i.rating)+" auf Letterboxd") : null,
+            i.topRank>0? el("span",{class:"kind"},"Top 10 · Platz "+i.topRank) : null)),
+        el("button",{class:"close",type:"button","aria-label":"Schließen",onclick:closeSheet},"×")),
+      i.desc? el("p",{class:"desc"}, i.desc) : null,
+      (i.cats||[]).length? el("div",{class:"chips"}, i.cats.map(g=>el("button",{class:"chip",type:"button",onclick:()=>{ view.genre=g; view.sort="genre"; persist(); closeSheet(); render(); $("list").scrollIntoView({behavior:"smooth"}); }}, g))) : null,
+      el("div",{class:"blk"}, el("span",{class:"label-sm"},"Bewertungen"),
+        el("div",{class:"row"}, agg[i.id]&&agg[i.id].n? el("span",{class:"avg big"}, "★ "+fmtAvg(agg[i.id].sum/agg[i.id].n)+" von 5") : el("span",{class:"kind"},"Noch keine Bewertungen"),
+          agg[i.id]&&agg[i.id].n? el("span",{class:"kind"}, agg[i.id].n+(agg[i.id].n===1?" Bewertung":" Bewertungen")) : null),
+        el("div",{class:"rate",role:"group","aria-label":"Deine Bewertung"},
+          el("span",{class:"kind"},"Deine Bewertung:"),
+          [1,2,3,4,5].map(n=>el("button",{class:"rstar",type:"button","aria-label":n+" von 5 Sternen","aria-pressed":String((myScores[i.id]||0)>=n),onclick:()=>rate(i.id,n)},"★")),
+          myScores[i.id]? el("button",{class:"ghost",type:"button",style:"padding:3px 8px;font-size:12px",onclick:()=>rate(i.id,0)},"Entfernen") : null),
+        (askName && askName.id===i.id) ? (()=>{ const inp=el("input",{class:"field",id:"sh-name",placeholder:"Dein Name",maxlength:"40","aria-label":"Dein Name",style:"flex:1;min-width:140px"});
+            const go=async()=>{ if(!inp.value.trim()) { inp.focus(); return; } setName(inp.value); const p=askName; askName=null;
+              if(p.rename){ renderSheet(); if(sb) await sb.from("ratings").update({name:myName}).eq("device_id",deviceId); return; } rate(p.id,p.n); };
+            inp.addEventListener("keydown",ev=>{ if(ev.key==="Enter"){ ev.preventDefault(); go(); } });
+            setTimeout(()=>inp.focus(),0);
+            return el("div",{class:"row namebox"}, el("span",{class:"kind"},"Unter welchem Namen bewertest du?"), inp, el("button",{class:"btn",type:"button",style:"padding:6px 14px",onclick:go},"Bewerten")); })()
+          : (myName? el("span",{class:"kind"},"Du bewertest als ", el("b",{},myName), " · ", el("button",{class:"linkbtn",type:"button",onclick:()=>{ askName={id:i.id,n:myScores[i.id]||0, rename:true}; myName=""; renderSheet(); }},"Name ändern")) : null),
+        agg[i.id]&&agg[i.id].n? el("ul",{class:"who"}, agg[i.id].who.slice().sort((a,b)=>b.stars-a.stars).map(r=>el("li",{}, el("span",{},r.name), el("span",{class:"avg"},"★".repeat(r.stars))))) : null),
+      ...(ro ? [
+        el("div",{class:"blk"}, el("span",{class:"label-sm"},"Status"), el("div",{class:"row"}, el("span",{class:"pill s-"+i.status},STATUS[i.status]))),
+        (i.media||[]).length? el("div",{class:"blk"}, el("span",{class:"label-sm"},"In der Sammlung"), el("div",{class:"row"}, i.media.map(m=>el("span",{class:"tag own"},m)))) : null,
+        (i.streams||[]).length? el("div",{class:"blk"}, el("span",{class:"label-sm"},"Zu sehen bei"), el("div",{class:"row"}, i.streams.map(x=>el("span",{class:"tag"},x)))) : null,
+        i.rec? el("div",{class:"blk"}, el("span",{class:"label-sm"},"Empfehlung"), el("div",{}, meter(i.rec), el("span",{class:"reclbl"},REC[i.rec])), i.recNote? el("p",{class:"note"},i.recNote) : null) : null,
+        i.releaseDate? el("div",{class:"blk"}, el("span",{class:"label-sm"},"Release-Termin"), el("span",{}, (i.releaseNote? i.releaseNote+" · ":"")+fmtDate(i.releaseDate))) : null
+      ] : [
+        el("div",{class:"blk"}, el("span",{class:"label-sm"},"Status"), statusSeg),
+        el("div",{class:"blk"}, el("span",{class:"label-sm"},"Art"), kindSeg),
+        el("div",{class:"blk"}, el("span",{class:"label-sm"},"In meiner Sammlung"), mediaSeg),
+        el("div",{class:"blk"}, el("span",{class:"label-sm"},"Zu sehen bei"), streamSeg),
+        el("div",{class:"blk"}, el("span",{class:"label-sm"},"Empfehlung"), lv, ta),
+        el("div",{class:"blk"}, el("span",{class:"label-sm"},"Release-Termin"), el("div",{class:"row"}, dIn, nIn))
+      ]),
+      ro? null : el("div",{class:"row",style:"display:flex;gap:8px;flex-wrap:wrap"},
+        el("button",{class:"btn",id:"sh-save",type:"button",disabled:dirty?null:"",onclick:async()=>{
+          await save(i.id,{rec:draft.rec, recNote:draft.recNote.trim(), releaseDate:draft.releaseDate||"", releaseNote:draft.releaseNote.trim()}); closeSheet(); }},"Speichern"),
+        el("button",{class:"ghost",type:"button",onclick:closeSheet},"Schließen")),
+      el("div",{class:"foot"},
+        el("div",{class:"row",style:"display:flex;flex-wrap:wrap;gap:12px;align-items:center"},
+          lb? el("a",{href:lb,target:"_blank",rel:"noopener"},"Auf Letterboxd ansehen ↗") : null,
+          ro? null : el("button",{class:"ghost",type:"button",onclick:()=>setWeekly(i)}, (weekly&&weekly.id===i.id&&weekly.week===isoWeek(new Date()).join("-"))? "✓ Empfehlung der Woche" : "Zur Empfehlung der Woche machen")),
+        ro? null : el("button",{class:"del"+(sheetConfirm?" confirm":""),type:"button",onclick:async()=>{
+          if(!sheetConfirm){ sheetConfirm=true; renderSheet(); return; }
+          const t=i; closeSheet(); await remove(t); }}, sheetConfirm? "Wirklich löschen?" : "Aus dem Regal löschen")));
+    const hadFocus = document.activeElement && host.contains(document.activeElement) ? document.activeElement.id : null;
+    host.replaceChildren(sheet);
+    if(fresh) sheet.querySelector(".close").focus();
+    else if(hadFocus && $(hadFocus)) $(hadFocus).focus();
+  }
+
+  function setStatus(t){ $("status").textContent = t; $("status").hidden = !t; }
+  function handleWriteErr(e){
+    if(e && e.code==="invalid_argument"){ setStatus("Nicht gespeichert: Bitte melde dich an, um Titel zu bearbeiten."); }
+    else setStatus("Speichern hat nicht geklappt. Bitte nochmal versuchen.");
+  }
+  async function setWeekly(i){
+    if(!sb) return;
+    const week = isoWeek(new Date()).join("-");
+    const on = weekly&&weekly.id===i.id&&weekly.week===week;
+    const value = on? {id:"", week:"", note:""} : {id:i.id, week, note:"", setAt:new Date().toISOString()};
+    weekly = value; render();
+    const { error } = await sb.from("meta").upsert({key:"weekly", value, updated_at:new Date().toISOString()});
+    if(error) handleWriteErr({code: error.code==="42501"? "invalid_argument" : "x"});
+  }
+  async function save(id, patch){ if(!col) return; try{ await col.doc(id).update(patch); }catch(e){ handleWriteErr(e); } }
+  async function remove(i){ if(!col) return; try{ await col.doc(i.id).delete(); if(i.banner && assets){ try{ await assets.delete(i.banner); }catch(e){} } }catch(e){ handleWriteErr(e); } }
+  async function setBanner(i, file){
+    if(!assets || bannerBusy) return; bannerBusy = true; renderSheet();
+    const old = i.banner;
+    try{
+      let id = "";
+      if(file){ const r = await assets.upload(file); id = r.id; }
+      await col.doc(i.id).update({banner:id});
+      if(old){ try{ await assets.delete(old); }catch(e){} }
+    }catch(e){
+      const c = e && e.code;
+      setStatus(c==="too_large"? "Das Bild ist zu groß (max. 20 MB)." : c==="unsupported_type"? "Bitte ein JPG, PNG, WebP oder GIF wählen." : c==="quota_or_state"? "Der Bildspeicher ist voll." : c==="invalid_argument"? "Nur der Besitzer kann Banner ändern." : "Das Banner konnte nicht gespeichert werden.");
+    }
+    bannerBusy = false; renderSheet();
+  }
+
+  $("add").addEventListener("submit", async ev=>{
+    ev.preventDefault();
+    const title = $("f-title").value.trim(); if(!title) return;
+    if(!col){ $("add-err").textContent="Die Liste ist gerade nicht erreichbar."; $("add-err").hidden=false; return; }
+    $("f-submit").disabled = true;
+    const data = { title, kind: document.querySelector('input[name="kind"]:checked').value,
+      status: $("f-status").value, favorite: $("f-fav").checked,
+      releaseDate: $("f-date").value||"", releaseNote: $("f-note").value.trim(), createdAt: new Date().toISOString() };
+    try{ await col.add(data); $("add").reset(); $("add-err").hidden=true; $("f-title").focus(); }catch(e){ handleWriteErr(e); }
+    $("f-submit").disabled = false;
+  });
+  document.querySelectorAll('input[name="vk"]').forEach(r=>r.addEventListener("change",()=>{ view.kind=r.value; persist(); render(); }));
+  $("vs").addEventListener("change",()=>{ view.status=$("vs").value; persist(); render(); });
+  $("vg").addEventListener("change",()=>{ view.genre=$("vg").value; persist(); render(); });
+  $("vsort").addEventListener("change",()=>{ view.sort=$("vsort").value; persist(); render(); });
+  $("vw").addEventListener("change",()=>{ view.where=$("vw").value; persist(); render(); });
+  function persist(){ try{ localStorage.setItem("filmregal-view",JSON.stringify(view)); }catch(e){} }
+
+  render();
+
+  // ---- Anmeldung (nur für dich) ----
+  function renderAuth(){
+    const box = $("auth"); if(!box) return; box.replaceChildren();
+    if(!sb) return;
+    if(session){
+      box.append(el("span",{class:"kind"},"Angemeldet"), el("button",{class:"linkbtn",type:"button",onclick:async()=>{ await sb.auth.signOut(); }},"Abmelden"));
+    } else if(box.dataset.open==="1"){
+      const inp = el("input",{class:"field",type:"email",id:"login-mail",placeholder:"Deine E-Mail-Adresse",autocomplete:"email","aria-label":"E-Mail-Adresse",style:"min-width:200px;flex:1"});
+      const msg = el("span",{class:"kind",id:"login-msg"});
+      const send = async()=>{ const mail=inp.value.trim(); if(!mail){ inp.focus(); return; }
+        msg.textContent="Sende Link …";
+        const { error } = await sb.auth.signInWithOtp({ email: mail, options:{ shouldCreateUser:false, emailRedirectTo: location.href.split("#")[0] } });
+        msg.textContent = error? "Das hat nicht geklappt. Ist das die E-Mail-Adresse aus Supabase?" : "Prüfe dein Postfach und tippe auf den Anmelde-Link."; };
+      inp.addEventListener("keydown",ev=>{ if(ev.key==="Enter"){ ev.preventDefault(); send(); } });
+      box.append(inp, el("button",{class:"btn",type:"button",style:"padding:7px 14px",onclick:send},"Link senden"), el("button",{class:"linkbtn",type:"button",onclick:()=>{ box.dataset.open=""; renderAuth(); }},"Abbrechen"), msg);
+    } else {
+      box.append(el("button",{class:"linkbtn",type:"button",onclick:()=>{ box.dataset.open="1"; renderAuth(); const f=$("login-mail"); if(f) f.focus(); }},"Anmelden zum Bearbeiten"));
+    }
+  }
+
+  // ---- Datenzugriff über Supabase ----
+  const strip = i => { const o = Object.assign({}, i); delete o.id; delete o.cats; return o; };
+  const toItem = row => { const o = Object.assign({id:row.id}, row.data||{}); o.cats = cats(o.genres); return o; };
+  const notAllowed = () => ({code:"invalid_argument"});
+  col = {
+    doc(id){ return {
+      async update(patch){
+        const cur = items.find(x=>x.id===id); if(!cur) return;
+        const data = Object.assign(strip(cur), patch);
+        Object.assign(cur, patch); cur.cats = cats(cur.genres); render();
+        const { data:rows, error } = await sb.from("titles").update({data, updated_at:new Date().toISOString()}).eq("id",id).select("id");
+        if(error || !rows || !rows.length) throw notAllowed();
+      },
+      async delete(){
+        const { data:rows, error } = await sb.from("titles").delete().eq("id",id).select("id");
+        if(error || !rows || !rows.length) throw notAllowed();
+        items = items.filter(x=>x.id!==id); render();
+      }
+    }; },
+    async add(data){
+      const id = "t-" + (crypto.randomUUID? crypto.randomUUID().slice(0,13) : Date.now().toString(36));
+      const { error } = await sb.from("titles").insert({id, data});
+      if(error) throw notAllowed();
+      items.push(toItem({id, data})); render();
+    }
+  };
+  const bannerStore = {
+    async upload(file){
+      if(file.size > 20*1024*1024) throw {code:"too_large"};
+      if(!/^image\/(png|jpe?g|webp|gif)$/.test(file.type)) throw {code:"unsupported_type"};
+      const ext = (file.type.split("/")[1]||"jpg").replace("jpeg","jpg");
+      const path = (crypto.randomUUID? crypto.randomUUID() : Date.now().toString(36)) + "." + ext;
+      const { error } = await sb.storage.from("banners").upload(path, file, { contentType:file.type, upsert:false });
+      if(error) throw {code:"upstream_error"};
+      return { id: sb.storage.from("banners").getPublicUrl(path).data.publicUrl };
+    },
+    async delete(url){ const path = String(url).split("/banners/").pop(); if(path) await sb.storage.from("banners").remove([path]); }
+  };
+
+  async function loadAll(){
+    const [t, m, r] = await Promise.all([
+      sb.from("titles").select("id,data").limit(5000),
+      sb.from("meta").select("key,value").eq("key","weekly"),
+      sb.from("ratings").select("title_id,device_id,name,stars").limit(20000)
+    ]);
+    if(t.error) throw t.error;
+    items = (t.data||[]).map(toItem);
+    weekly = (m.data&&m.data[0]) ? m.data[0].value : null;
+    ratingRows = r.data||[]; recalc();
+  }
+  let reloadTimer = null;
+  function scheduleReload(){ clearTimeout(reloadTimer); reloadTimer = setTimeout(()=>loadAll().then(render).catch(()=>{}), 400); }
+
+  (async ()=>{
+    const cfg = window.FINAL_CUT_CONFIG || {};
+    if(!window.supabase || !cfg.supabaseUrl || !cfg.supabaseAnonKey || /DEIN/.test(cfg.supabaseUrl)){
+      setStatus("Die Seite ist noch nicht verbunden. Trag in config.js deine Supabase-Adresse und den anon-Schlüssel ein."); return;
+    }
+    sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
+    readonly = true;
+    const applySession = s => { session = s; readonly = !s; assets = s? bannerStore : null; setStatus(""); render(); };
+    sb.auth.onAuthStateChange((_ev, s)=> applySession(s));
+    const { data:{ session:s0 } } = await sb.auth.getSession(); session = s0; readonly = !s0; assets = s0? bannerStore : null;
+    setStatus("Liste wird geladen …");
+    try{ await loadAll(); setStatus(""); }
+    catch(e){ setStatus("Die Liste konnte nicht geladen werden. Prüfe die Angaben in config.js."); return; }
+    render();
+    sb.channel("final-cut")
+      .on("postgres_changes",{event:"*",schema:"public",table:"titles"}, scheduleReload)
+      .on("postgres_changes",{event:"*",schema:"public",table:"meta"}, scheduleReload)
+      .on("postgres_changes",{event:"*",schema:"public",table:"ratings"}, ()=>{ if(!rateBusy) scheduleReload(); })
+      .subscribe();
+  })();
+})();
+</script>
+</body>
+</html>

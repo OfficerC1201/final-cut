@@ -1,0 +1,3240 @@
+{
+ "lb-ted": {
+  "createdAt": "2026-11-04T02:40:50.050Z",
+  "desc": "Ein Mann muss sich zwischen seiner Freundin und seinem lebendig gewordenen, ziemlich unverschämten Teddybären entscheiden.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/ted/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Ted",
+  "year": 2012
+ },
+ "lb-ex-machina-2015": {
+  "createdAt": "2026-11-04T02:40:31.031Z",
+  "desc": "Ein Programmierer soll testen, ob die humanoide KI seines Chefs ein echtes Bewusstsein hat.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/ex-machina-2015/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Ex Machina",
+  "year": 2015
+ },
+ "lb-in-bruges": {
+  "createdAt": "2026-11-04T02:40:18.078Z",
+  "desc": "Zwei Auftragskiller tauchen nach einem missglückten Job im belgischen Brügge unter.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Komödie",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/in-bruges/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "In Bruges",
+  "year": 2008
+ },
+ "lb-harry-potter-and-the-half-blood-prince": {
+  "createdAt": "2026-11-04T02:40:13.073Z",
+  "desc": "Harry erfährt mehr über Voldemorts Vergangenheit und findet ein altes Zaubertrankbuch eines rätselhaften Prinzen.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-half-blood-prince/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Half-Blood Prince",
+  "year": 2009
+ },
+ "lb-the-tourist": {
+  "createdAt": "2026-11-04T02:40:05.065Z",
+  "desc": "Ein amerikanischer Tourist gerät in Venedig durch eine geheimnisvolle Frau ins Visier von Gangstern und Polizei.",
+  "favorite": false,
+  "genres": [
+   "Romantik",
+   "Action",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-tourist/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Tourist",
+  "year": 2010
+ },
+ "lb-the-firm-1993": {
+  "createdAt": "2026-11-04T02:40:06.126Z",
+  "desc": "Ein junger Anwalt entdeckt, dass seine angesehene Kanzlei für die Mafia arbeitet.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Mystery",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-firm-1993/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Firm",
+  "year": 1993
+ },
+ "lb-inception": {
+  "createdAt": "2026-11-04T02:40:09.069Z",
+  "desc": "Ein Dieb, der Geheimnisse aus Träumen stiehlt, soll stattdessen eine Idee in einen fremden Kopf einpflanzen.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Science-Fiction",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/inception/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Inception",
+  "year": 2010
+ },
+ "lb-midnight-in-paris": {
+  "createdAt": "2026-11-04T02:40:00.060Z",
+  "desc": "Ein Schriftsteller landet bei nächtlichen Spaziergängen durch Paris jedes Mal in den 1920er-Jahren.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Fantasy",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/midnight-in-paris/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Midnight in Paris",
+  "year": 2011
+ },
+ "lb-ferris-buellers-day-off": {
+  "createdAt": "2026-11-04T02:40:14.134Z",
+  "desc": "Ein Schüler schwänzt mit seinen Freunden einen Tag und erlebt Chicago in vollen Zügen.",
+  "favorite": false,
+  "genres": [
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/ferris-buellers-day-off/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Ferris Bueller's Day Off",
+  "year": 1986
+ },
+ "lb-national-treasure": {
+  "createdAt": "2026-11-04T02:40:35.095Z",
+  "desc": "Ein Schatzsucher will die Unabhängigkeitserklärung stehlen, weil sie eine Karte zu einem verborgenen Schatz enthält.",
+  "favorite": false,
+  "genres": [
+   "Mystery",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/national-treasure/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "National Treasure",
+  "year": 2004
+ },
+ "lb-star-wars": {
+  "createdAt": "2026-11-04T02:40:23.143Z",
+  "desc": "Der junge Luke Skywalker schließt sich der Rebellion an, um Prinzessin Leia zu befreien und den Todesstern zu zerstören.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Science-Fiction",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/star-wars/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Star Wars",
+  "year": 1977
+ },
+ "lb-baywatch": {
+  "createdAt": "2026-11-04T02:40:13.013Z",
+  "desc": "Ein Rettungsschwimmer-Team in Florida stößt auf kriminelle Machenschaften, die ihren Strand bedrohen.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Krimi",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/baywatch/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Baywatch",
+  "year": 2017
+ },
+ "lb-star-wars-episode-iii-revenge-of-the-sith": {
+  "createdAt": "2026-11-04T02:40:34.094Z",
+  "desc": "Anakin Skywalker wendet sich der dunklen Seite zu und wird zu Darth Vader.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/star-wars-episode-iii-revenge-of-the-sith/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Star Wars: Episode III – Revenge of the Sith",
+  "year": 2005
+ },
+ "lb-harry-potter-and-the-order-of-the-phoenix": {
+  "createdAt": "2026-11-04T02:40:19.079Z",
+  "desc": "Harry gründet mit Freunden eine geheime Gruppe, um sich gegen Voldemorts Rückkehr zu wappnen.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-order-of-the-phoenix/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Order of the Phoenix",
+  "year": 2007
+ },
+ "lb-one-night-only-2026": {
+  "createdAt": "2026-11-04T01:20:02Z",
+  "desc": "Komödie über zwei einsame Singles, die sich in der einen Nacht im Jahr begegnen, in der Singles offiziell miteinander schlafen dürfen.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/one-night-only-2026/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "One Night Only",
+  "year": 2026
+ },
+ "lb-blade-runner": {
+  "createdAt": "2026-11-04T02:40:20.140Z",
+  "desc": "Im Los Angeles des Jahres 2019 jagt ein Blade Runner künstliche Menschen, die auf die Erde geflohen sind.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Drama",
+   "Science-Fiction"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/blade-runner/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Blade Runner",
+  "year": 1982
+ },
+ "lb-the-secret-life-of-walter-mitty-2013": {
+  "createdAt": "2026-11-04T02:40:40.040Z",
+  "desc": "Ein verträumter Bildredakteur macht sich auf eine echte Abenteuerreise, um ein verschollenes Foto zu finden.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Fantasy",
+   "Drama",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-secret-life-of-walter-mitty-2013/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Secret Life of Walter Mitty",
+  "year": 2013
+ },
+ "lb-atonement": {
+  "createdAt": "2026-11-04T02:40:24.084Z",
+  "desc": "Eine Lüge der jungen Briony zerstört 1935 das Leben ihrer Schwester und deren Geliebten.",
+  "favorite": false,
+  "genres": [
+   "Romantik",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/atonement/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Atonement",
+  "year": 2007
+ },
+ "lb-no-time-to-die-2021": {
+  "createdAt": "2026-11-04T01:20:27Z",
+  "desc": "James Bond genießt den Ruhestand auf Jamaika, bis ihn sein CIA-Freund Felix Leiter um Hilfe bittet – und die Rettung eines Wissenschaftlers ihn auf die Spur eines gefährlichen Gegners führt.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/no-time-to-die-2021/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "No Time to Die",
+  "year": 2021
+ },
+ "lb-dr-no": {
+  "createdAt": "2026-11-04T02:40:26.146Z",
+  "desc": "James Bonds erster Einsatz führt ihn nach Jamaika, wo ein mysteriöser Wissenschaftler US-Raketen sabotiert.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/dr-no/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Dr. No",
+  "year": 1962
+ },
+ "lb-the-wolf-of-wall-street": {
+  "createdAt": "2026-11-04T02:40:37.037Z",
+  "desc": "Aufstieg und Fall von Jordan Belfort, der mit Betrug an der Börse ein Vermögen macht.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Drama",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-wolf-of-wall-street/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Wolf of Wall Street",
+  "year": 2013
+ },
+ "lb-the-hangover": {
+  "createdAt": "2026-11-04T02:40:15.075Z",
+  "desc": "Nach einem Junggesellenabschied in Las Vegas wachen drei Freunde ohne Erinnerung auf – und der Bräutigam ist verschwunden.",
+  "favorite": false,
+  "genres": [
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-hangover/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Hangover",
+  "year": 2009
+ },
+ "lb-zoolander": {
+  "createdAt": "2026-11-04T02:40:51.111Z",
+  "desc": "Ein einfältiges Topmodel wird einer Gehirnwäsche unterzogen, um einen Premierminister zu ermorden.",
+  "favorite": false,
+  "genres": [
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/zoolander/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Zoolander",
+  "year": 2001
+ },
+ "lb-the-ghost-writer": {
+  "createdAt": "2026-11-04T02:40:11.071Z",
+  "desc": "Ein Ghostwriter soll die Memoiren eines Ex-Premierministers fertigstellen und stößt auf gefährliche Geheimnisse.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Mystery"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-ghost-writer/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Ghost Writer",
+  "year": 2010
+ },
+ "lb-sherlock-holmes-a-game-of-shadows": {
+  "createdAt": "2026-11-04T02:40:55.055Z",
+  "desc": "Sherlock Holmes und Dr. Watson stellen sich ihrem größten Gegner: Professor Moriarty.",
+  "favorite": false,
+  "genres": [
+   "Mystery",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/sherlock-holmes-a-game-of-shadows/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Sherlock Holmes: A Game of Shadows",
+  "year": 2011
+ },
+ "lb-mission-impossible-ghost-protocol": {
+  "createdAt": "2026-11-04T02:40:54.054Z",
+  "desc": "Nach einem Anschlag auf den Kreml wird die IMF abgeschaltet, und Ethan Hunts Team muss auf eigene Faust handeln.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/mission-impossible-ghost-protocol/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Mission: Impossible – Ghost Protocol",
+  "year": 2011
+ },
+ "lb-tuner": {
+  "createdAt": "2026-11-04T01:20:08Z",
+  "desc": "Ein begnadeter Klavierstimmer entdeckt, dass sich sein feines Gehör genauso gut zum Knacken von Tresoren eignet.",
+  "favorite": false,
+  "genres": [
+   "Romantik",
+   "Musik",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/tuner/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Tuner",
+  "year": 2025
+ },
+ "lb-the-nice-guys": {
+  "createdAt": "2026-11-04T02:40:23.023Z",
+  "desc": "Ein Schläger und ein Privatdetektiv ermitteln im Los Angeles der 70er im Fall eines verschwundenen Mädchens.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Komödie",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-nice-guys/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Nice Guys",
+  "year": 2016
+ },
+ "lb-the-dog-stars": {
+  "createdAt": "2026-11-04T01:20:01Z",
+  "desc": "Nach einer verheerenden Pandemie lebt ein Pilot mit seinem Hund in einem Hangar in Colorado – bis ein rätselhafter Funkspruch ihn auf die Suche nach dessen Herkunft schickt.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Science-Fiction",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-dog-stars/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Dog Stars",
+  "year": 2026
+ },
+ "lb-mission-impossible-rogue-nation": {
+  "createdAt": "2026-11-04T02:40:28.028Z",
+  "desc": "Die IMF wird aufgelöst, und Ethan Hunt muss allein gegen ein internationales Netzwerk von Ex-Agenten antreten.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/mission-impossible-rogue-nation/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Mission: Impossible – Rogue Nation",
+  "year": 2015
+ },
+ "lb-paddington-2": {
+  "createdAt": "2026-11-04T02:40:08.008Z",
+  "desc": "Paddington will seiner Tante ein besonderes Geschenk kaufen, wird aber zu Unrecht des Diebstahls beschuldigt und landet im Gefängnis.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Familie",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/paddington-2/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Paddington 2",
+  "year": 2017
+ },
+ "lb-transformers-revenge-of-the-fallen": {
+  "createdAt": "2026-11-04T02:40:14.074Z",
+  "desc": "Sam Witwicky gerät erneut zwischen die Fronten von Autobots und Decepticons.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer",
+   "Science-Fiction"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/transformers-revenge-of-the-fallen/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Transformers: Revenge of the Fallen",
+  "year": 2009
+ },
+ "lb-mission-impossible-iii": {
+  "createdAt": "2026-11-04T02:40:31.091Z",
+  "desc": "Ethan Hunt muss einen skrupellosen Waffenhändler stoppen, der seine Verlobte bedroht.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/mission-impossible-iii/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Mission: Impossible III",
+  "year": 2006
+ },
+ "lb-love-other-drugs": {
+  "createdAt": "2026-11-04T02:40:06.066Z",
+  "desc": "Ein charmanter Pharmavertreter verliebt sich in eine freiheitsliebende junge Frau.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Drama",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/love-other-drugs/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Love & Other Drugs",
+  "year": 2010
+ },
+ "lb-the-dark-knight": {
+  "createdAt": "2026-11-04T02:40:17.077Z",
+  "desc": "Batman sieht sich in Gotham dem Joker gegenüber, der die Stadt ins Chaos stürzen will.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Action",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-dark-knight/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Dark Knight",
+  "year": 2008
+ },
+ "lb-men-in-black-international": {
+  "createdAt": "2026-11-04T02:40:02.002Z",
+  "desc": "Die Men in Black bekommen eine neue Agentin, die gemeinsam mit einem Londoner Kollegen einen Maulwurf in der Organisation aufspürt.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Science-Fiction",
+   "Komödie",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/men-in-black-international/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Men in Black: International",
+  "year": 2019
+ },
+ "lb-the-dictator-2012": {
+  "createdAt": "2026-11-04T02:40:52.052Z",
+  "desc": "Ein größenwahnsinniger Diktator verliert in New York seine Identität und muss sich als Normalbürger durchschlagen.",
+  "favorite": false,
+  "genres": [
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-dictator-2012/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Dictator",
+  "year": 2012
+ },
+ "lb-the-godfather": {
+  "createdAt": "2026-11-04T02:40:24.144Z",
+  "desc": "Der Mafia-Patriarch Vito Corleone übergibt die Macht an seinen zögerlichen Sohn Michael.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-godfather/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Godfather",
+  "year": 1972
+ },
+ "lb-saltburn": {
+  "createdAt": "2026-11-04T01:20:18Z",
+  "desc": "Der Oxford-Student Oliver gerät in den Bann seines adligen Kommilitonen Felix und verbringt einen unvergesslichen Sommer auf dessen Familienanwesen.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/saltburn/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Saltburn",
+  "year": 2023
+ },
+ "lb-dallas-buyers-club": {
+  "createdAt": "2026-11-04T02:40:41.041Z",
+  "desc": "Ein HIV-positiver Elektriker schmuggelt in den 80ern nicht zugelassene Medikamente für andere Erkrankte.",
+  "favorite": false,
+  "genres": [
+   "Historie",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/dallas-buyers-club/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Dallas Buyers Club",
+  "year": 2013
+ },
+ "lb-parasite-2019": {
+  "createdAt": "2026-11-04T02:40:04.004Z",
+  "desc": "Eine arme Familie schleicht sich nach und nach als Personal bei einer reichen Familie ein – bis die Lage völlig außer Kontrolle gerät.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Komödie",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/parasite-2019/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Parasite",
+  "year": 2019
+ },
+ "lb-baby-driver": {
+  "createdAt": "2026-11-04T02:40:15.015Z",
+  "desc": "Ein junger Fluchtwagenfahrer, der mit Musik im Ohr fährt, will aus dem Verbrechen aussteigen – doch ein letzter Coup geht schief.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/baby-driver/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Baby Driver",
+  "year": 2017
+ },
+ "lb-coco-2017": {
+  "createdAt": "2026-11-04T02:40:09.009Z",
+  "desc": "Der junge Miguel träumt von der Musik und landet am mexikanischen Totentag im Reich der Toten, wo er seine Familiengeschichte entdeckt.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Animation",
+   "Musik",
+   "Familie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/coco-2017/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Coco",
+  "year": 2017
+ },
+ "lb-focus-2015": {
+  "createdAt": "2026-11-04T02:40:30.030Z",
+  "desc": "Ein erfahrener Trickbetrüger nimmt eine junge Diebin unter seine Fittiche – und verliebt sich in sie.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Komödie",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/focus-2015/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Focus",
+  "year": 2015
+ },
+ "lb-were-the-millers": {
+  "createdAt": "2026-11-04T02:40:42.042Z",
+  "desc": "Ein Kleindealer stellt eine falsche Familie zusammen, um Drogen über die mexikanische Grenze zu bringen.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/were-the-millers/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "We're the Millers",
+  "year": 2013
+ },
+ "lb-the-social-reckoning": {
+  "createdAt": "2026-11-04T01:20:00Z",
+  "desc": "Eine Facebook-Ingenieurin tut sich mit einem Reporter des Wall Street Journal zusammen und macht die bestgehüteten Geheimnisse des Konzerns öffentlich.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-social-reckoning/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Social Reckoning",
+  "year": 2026
+ },
+ "lb-dunkirk-2017": {
+  "createdAt": "2026-11-04T02:40:11.011Z",
+  "desc": "1940 sitzen hunderttausende alliierte Soldaten am Strand von Dünkirchen fest – erzählt aus der Sicht von Land, Meer und Luft.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Historie",
+   "Krieg"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/dunkirk-2017/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Dunkirk",
+  "year": 2017
+ },
+ "lb-star-wars-episode-i-the-phantom-menace": {
+  "createdAt": "2026-11-04T02:40:56.116Z",
+  "desc": "Zwei Jedi entdecken den jungen Anakin Skywalker, während eine Bedrohung die Republik erschüttert.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/star-wars-episode-i-the-phantom-menace/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Star Wars: Episode I – The Phantom Menace",
+  "year": 1999
+ },
+ "lb-passengers-2016": {
+  "createdAt": "2026-11-04T02:40:16.016Z",
+  "desc": "Auf einem Raumschiff erwachen zwei Passagiere Jahrzehnte zu früh aus dem Kälteschlaf und entdecken eine Fehlfunktion.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Science-Fiction",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/passengers-2016/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Passengers",
+  "year": 2016
+ },
+ "lb-shutter-island": {
+  "createdAt": "2026-11-04T02:40:10.070Z",
+  "desc": "Ein US-Marshal ermittelt 1954 in einer psychiatrischen Klinik auf einer Insel nach einer verschwundenen Patientin.",
+  "favorite": false,
+  "genres": [
+   "Mystery",
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/shutter-island/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Shutter Island",
+  "year": 2010
+ },
+ "lb-the-hobbit-the-desolation-of-smaug": {
+  "createdAt": "2026-11-04T02:40:38.038Z",
+  "desc": "Bilbo und die Zwerge setzen ihre Reise zum Einsamen Berg fort, wo der Drache Smaug wartet.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-hobbit-the-desolation-of-smaug/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Hobbit: The Desolation of Smaug",
+  "year": 2013
+ },
+ "lb-pirates-of-the-caribbean-on-stranger-tides": {
+  "createdAt": "2026-11-04T02:40:01.061Z",
+  "desc": "Jack Sparrow sucht den Jungbrunnen und trifft auf Blackbeard und eine alte Liebe.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/pirates-of-the-caribbean-on-stranger-tides/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Pirates of the Caribbean: On Stranger Tides",
+  "year": 2011
+ },
+ "lb-mission-impossible": {
+  "createdAt": "2026-11-04T02:40:01.121Z",
+  "desc": "Agent Ethan Hunt wird nach einem missglückten Einsatz selbst zum Verdächtigen und muss den wahren Verräter finden.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/mission-impossible/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Mission: Impossible",
+  "year": 1996
+ },
+ "lb-triple-frontier": {
+  "createdAt": "2026-11-04T02:40:05.005Z",
+  "desc": "Fünf ehemalige Spezialsoldaten planen, einen Drogenboss in Südamerika auszurauben, und geraten dabei an ihre Grenzen.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer",
+   "Thriller",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/triple-frontier/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Triple Frontier",
+  "year": 2019
+ },
+ "lb-back-to-the-future-part-ii": {
+  "createdAt": "2026-11-04T02:40:11.131Z",
+  "desc": "Marty und Doc reisen ins Jahr 2015 und müssen danach die Vergangenheit erneut retten.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Komödie",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/back-to-the-future-part-ii/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Back to the Future Part II",
+  "year": 1989
+ },
+ "lb-the-empire-strikes-back": {
+  "createdAt": "2026-11-04T02:40:21.141Z",
+  "desc": "Das Imperium schlägt zurück: Luke trainiert bei Yoda, während Han und Leia von Darth Vader gejagt werden.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-empire-strikes-back/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Empire Strikes Back",
+  "year": 1980
+ },
+ "lb-forrest-gump": {
+  "createdAt": "2026-11-04T02:40:04.124Z",
+  "desc": "Ein einfacher Mann erlebt mit großem Herzen und viel Glück wichtige Momente der amerikanischen Geschichte.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Romantik",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/forrest-gump/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Forrest Gump",
+  "year": 1994
+ },
+ "lb-the-departed": {
+  "createdAt": "2026-11-04T02:40:28.088Z",
+  "desc": "Ein Polizist ist undercover bei der Mafia, während ein Mafia-Spitzel in der Polizei sitzt.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Krimi",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-departed/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Departed",
+  "year": 2006
+ },
+ "lb-harry-potter-and-the-deathly-hallows-part-2": {
+  "createdAt": "2026-11-04T02:40:58.058Z",
+  "desc": "Der finale Kampf um Hogwarts: Harry stellt sich Voldemort zum letzten Mal.",
+  "favorite": false,
+  "genres": [
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-deathly-hallows-part-2/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Deathly Hallows: Part 2",
+  "year": 2011
+ },
+ "lb-limitless": {
+  "createdAt": "2026-11-04T02:40:03.063Z",
+  "desc": "Ein erfolgloser Autor entdeckt eine Pille, die sein Gehirn auf volle Leistung bringt – mit gefährlichen Folgen.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Science-Fiction",
+   "Mystery"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/limitless/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Limitless",
+  "year": 2011
+ },
+ "lb-zootopia": {
+  "createdAt": "2026-11-04T02:40:24.024Z",
+  "desc": "In einer Stadt voller Tiere ermittelt eine Häsin als erste Polizistin ihrer Art zusammen mit einem gerissenen Fuchs.",
+  "favorite": false,
+  "genres": [
+   "Animation",
+   "Familie",
+   "Komödie",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/zootopia/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Zootopia",
+  "year": 2016
+ },
+ "lb-sicario-2015": {
+  "createdAt": "2026-11-04T02:40:29.029Z",
+  "desc": "Eine FBI-Agentin schließt sich einer verdeckten Einheit im Kampf gegen ein Drogenkartell an der mexikanischen Grenze an.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/sicario-2015/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Sicario",
+  "year": 2015
+ },
+ "lb-the-life-of-chuck": {
+  "createdAt": "2026-11-04T01:20:12Z",
+  "desc": "Das Leben eines ganz gewöhnlichen Mannes, rückwärts erzählt – über Liebe, Verlust und alles, was in einem Menschen steckt.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-life-of-chuck/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Life of Chuck",
+  "year": 2024
+ },
+ "lb-jack-reacher-never-go-back": {
+  "createdAt": "2026-11-04T02:40:19.019Z",
+  "desc": "Jack Reacher muss seine Unschuld beweisen und eine Verschwörung aufdecken, in die eine Armee-Majorin verwickelt ist.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Krimi",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/jack-reacher-never-go-back/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Jack Reacher: Never Go Back",
+  "year": 2016
+ },
+ "lb-goosebumps": {
+  "createdAt": "2026-11-04T02:40:27.027Z",
+  "desc": "Die Monster aus den Gänsehaut-Büchern brechen aus den Manuskripten aus und bedrohen eine Kleinstadt.",
+  "favorite": false,
+  "genres": [
+   "Horror",
+   "Komödie",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/goosebumps/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Goosebumps",
+  "year": 2015
+ },
+ "lb-pulp-fiction": {
+  "createdAt": "2026-11-04T02:40:05.125Z",
+  "desc": "Mehrere Geschichten aus der Unterwelt von Los Angeles verweben sich auf überraschende Weise.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Thriller",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/pulp-fiction/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Pulp Fiction",
+  "year": 1994
+ },
+ "lb-pirates-of-the-caribbean-dead-men-tell-no-tales": {
+  "createdAt": "2026-11-04T02:40:12.012Z",
+  "desc": "Captain Jack Sparrow wird von einem untoten Piratenjäger verfolgt und sucht den Dreizack des Poseidon.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/pirates-of-the-caribbean-dead-men-tell-no-tales/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+  "year": 2017
+ },
+ "lb-johnny-english": {
+  "createdAt": "2026-11-04T02:40:41.101Z",
+  "desc": "Ein tollpatschiger Geheimagent soll den Diebstahl der britischen Kronjuwelen aufklären.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Action",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/johnny-english/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Johnny English",
+  "year": 2003
+ },
+ "lb-rogue-one-a-star-wars-story": {
+  "createdAt": "2026-11-04T02:40:17.017Z",
+  "desc": "Eine Gruppe von Rebellen versucht, die Pläne des Todessterns zu stehlen.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Action",
+   "Science-Fiction"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/rogue-one-a-star-wars-story/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Rogue One: A Star Wars Story",
+  "year": 2016
+ },
+ "lb-primal-fear": {
+  "createdAt": "2026-11-04T02:40:02.122Z",
+  "desc": "Ein Staranwalt verteidigt einen schüchternen Messdiener, der einen Erzbischof ermordet haben soll.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/primal-fear/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Primal Fear",
+  "year": 1996
+ },
+ "lb-mission-impossible-dead-reckoning": {
+  "createdAt": "2026-11-04T01:20:20Z",
+  "desc": "Ethan Hunt und sein IMF-Team müssen eine neuartige, gefährliche Waffe aufspüren, bevor sie in falsche Hände gerät – und Schatten seiner Vergangenheit holen ihn ein.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/mission-impossible-dead-reckoning/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Mission: Impossible – Dead Reckoning",
+  "year": 2023
+ },
+ "lb-mission-impossible-fallout": {
+  "createdAt": "2026-11-04T02:40:07.007Z",
+  "desc": "Nach einer gescheiterten Mission muss Ethan Hunt verhindern, dass Plutonium in die Hände von Terroristen fällt.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/mission-impossible-fallout/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Mission: Impossible – Fallout",
+  "year": 2018
+ },
+ "lb-the-lord-of-the-rings-the-fellowship-of-the-ring": {
+  "createdAt": "2026-11-04T02:40:48.108Z",
+  "desc": "Der Hobbit Frodo bricht mit acht Gefährten auf, um den Einen Ring zu zerstören.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Action",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-lord-of-the-rings-the-fellowship-of-the-ring/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Lord of the Rings: The Fellowship of the Ring",
+  "year": 2001
+ },
+ "lb-batman-begins": {
+  "createdAt": "2026-11-04T02:40:33.093Z",
+  "desc": "Bruce Wayne wird zu Batman und stellt sich dem Verbrechen in Gotham City entgegen.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Action",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/batman-begins/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Batman Begins",
+  "year": 2005
+ },
+ "lb-collateral": {
+  "createdAt": "2026-11-04T02:40:36.096Z",
+  "desc": "Ein Taxifahrer in Los Angeles muss einen Auftragskiller eine Nacht lang zu seinen Zielen fahren.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/collateral/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Collateral",
+  "year": 2004
+ },
+ "lb-harry-potter-and-the-chamber-of-secrets": {
+  "createdAt": "2026-11-04T02:40:45.105Z",
+  "desc": "Im zweiten Schuljahr wird in Hogwarts die Kammer des Schreckens geöffnet.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-chamber-of-secrets/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Chamber of Secrets",
+  "year": 2002
+ },
+ "lb-men-in-black-3": {
+  "createdAt": "2026-11-04T02:40:53.053Z",
+  "desc": "Agent J reist in die Vergangenheit, um den jungen Agent K vor einem Attentat zu retten.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Action",
+   "Science-Fiction"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/men-in-black-3/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Men in Black 3",
+  "year": 2012
+ },
+ "lb-elvis-2022": {
+  "createdAt": "2026-11-04T01:20:24Z",
+  "desc": "Das Leben von Elvis Presley, erzählt über seine schwierige Beziehung zu Manager Colonel Tom Parker.",
+  "favorite": false,
+  "genres": [
+   "Musik",
+   "Historie",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/elvis-2022/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Elvis",
+  "year": 2022
+ },
+ "lb-home-alone": {
+  "createdAt": "2026-11-04T02:40:09.129Z",
+  "desc": "Ein Junge wird über Weihnachten versehentlich allein zu Hause gelassen und verteidigt es gegen zwei Einbrecher.",
+  "favorite": false,
+  "genres": [
+   "Familie",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/home-alone/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Home Alone",
+  "year": 1990
+ },
+ "lb-the-killer-2023": {
+  "createdAt": "2026-11-04T01:20:17Z",
+  "desc": "Nach einem verpatzten Auftrag wird ein Auftragskiller selbst zum Gejagten und nimmt es weltweit mit seinen Auftraggebern auf.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-killer-2023/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Killer",
+  "year": 2023
+ },
+ "lb-the-devil-wears-prada": {
+  "createdAt": "2026-11-04T02:40:30.090Z",
+  "desc": "Eine junge Journalistin wird Assistentin einer gefürchteten Modemagazin-Chefin.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-devil-wears-prada/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Devil Wears Prada",
+  "year": 2006
+ },
+ "lb-snowden": {
+  "createdAt": "2026-11-04T02:40:20.020Z",
+  "desc": "Die Geschichte von Edward Snowden, der die massenhafte Überwachung durch die NSA öffentlich machte.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Krimi",
+   "Thriller",
+   "Historie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/snowden/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Snowden",
+  "year": 2016
+ },
+ "lb-soul-2020": {
+  "createdAt": "2026-11-04T01:20:32Z",
+  "desc": "Der jazzbegeisterte Musiklehrer Joe landet nach einem Unfall im Jenseits und muss mit der Seele 22 einen Weg zurück in seinen Körper finden.",
+  "favorite": false,
+  "genres": [
+   "Musik",
+   "Drama",
+   "Familie",
+   "Animation",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/soul-2020/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Soul",
+  "year": 2020
+ },
+ "lb-ratatouille": {
+  "createdAt": "2026-11-04T02:40:20.080Z",
+  "desc": "Eine Ratte mit großem Kochtalent hilft einem jungen Küchenhelfer in einem Pariser Spitzenrestaurant.",
+  "favorite": false,
+  "genres": [
+   "Familie",
+   "Fantasy",
+   "Animation",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/ratatouille/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Ratatouille",
+  "year": 2007
+ },
+ "lb-catch-me-if-you-can-2002": {
+  "createdAt": "2026-11-04T02:40:44.104Z",
+  "desc": "Ein junger Hochstapler gibt sich als Pilot, Arzt und Anwalt aus und wird von einem FBI-Agenten gejagt.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/catch-me-if-you-can-2002/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Catch Me If You Can",
+  "year": 2002
+ },
+ "lb-blade-runner-2049": {
+  "createdAt": "2026-11-04T02:40:10.010Z",
+  "desc": "Dreißig Jahre nach dem ersten Film stößt ein junger Blade Runner auf ein Geheimnis, das die Gesellschaft ins Chaos stürzen könnte.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/blade-runner-2049/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Blade Runner 2049",
+  "year": 2017
+ },
+ "lb-sherlock-holmes-2009": {
+  "createdAt": "2026-11-04T02:40:12.072Z",
+  "desc": "Sherlock Holmes und Dr. Watson ermitteln gegen einen Lord, der scheinbar von den Toten zurückgekehrt ist.",
+  "favorite": false,
+  "genres": [
+   "Mystery",
+   "Action",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/sherlock-holmes-2009/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Sherlock Holmes",
+  "year": 2009
+ },
+ "lb-romeo-juliet-1996": {
+  "createdAt": "2026-11-04T02:40:00.120Z",
+  "desc": "Shakespeares Liebestragödie, verlegt in eine moderne Stadt voller Bandenkriege.",
+  "favorite": false,
+  "genres": [
+   "Romantik",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/romeo-juliet-1996/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Romeo + Juliet",
+  "year": 1996
+ },
+ "lb-blood-diamond": {
+  "createdAt": "2026-11-04T02:40:25.085Z",
+  "desc": "Ein Schmuggler und ein Fischer suchen im Bürgerkrieg in Sierra Leone einen seltenen Diamanten.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/blood-diamond/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Blood Diamond",
+  "year": 2006
+ },
+ "lb-the-naked-gun-from-the-files-of-police-squad": {
+  "createdAt": "2026-11-04T02:40:12.132Z",
+  "desc": "Der trottelige Polizist Frank Drebin soll ein Attentat auf die Queen verhindern.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-naked-gun-from-the-files-of-police-squad/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Naked Gun: From the Files of Police Squad!",
+  "year": 1988
+ },
+ "lb-fight-club": {
+  "createdAt": "2026-11-04T02:40:55.115Z",
+  "desc": "Ein schlafloser Angestellter gründet mit einem charismatischen Seifenverkäufer einen geheimen Kampfclub.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/fight-club/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Fight Club",
+  "year": 1999
+ },
+ "lb-love-actually": {
+  "createdAt": "2026-11-04T02:40:39.099Z",
+  "desc": "Mehrere Liebesgeschichten in London verweben sich in den Wochen vor Weihnachten.",
+  "favorite": false,
+  "genres": [
+   "Romantik",
+   "Drama",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/love-actually/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Love Actually",
+  "year": 2003
+ },
+ "lb-bullet-train": {
+  "createdAt": "2026-11-04T01:20:23Z",
+  "desc": "Der vom Pech verfolgte Killer Ladybug will nur einen ruhigen Job erledigen – doch im schnellsten Zug der Welt trifft er auf Gegner, deren Aufträge alle miteinander zusammenhängen.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Thriller",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/bullet-train/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Bullet Train",
+  "year": 2022
+ },
+ "lb-apocalypse-now": {
+  "createdAt": "2026-11-04T02:40:22.142Z",
+  "desc": "Im Vietnamkrieg soll ein Captain einen abtrünnigen Oberst tief im Dschungel ausschalten.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Krieg"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/apocalypse-now/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Apocalypse Now",
+  "year": 1979
+ },
+ "lb-the-queens-gambit": {
+  "createdAt": "2026-11-04T01:20:31Z",
+  "desc": "Miniserie: Ein Mädchen aus einem Waisenhaus der 1950er entdeckt ihr außergewöhnliches Schachtalent und steigt zur Spitzenspielerin auf – während sie mit ihrer Sucht kämpft.",
+  "favorite": false,
+  "genres": [
+   "Drama"
+  ],
+  "kind": "serie",
+  "lbUri": "https://letterboxd.com/film/the-queens-gambit/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Queen's Gambit",
+  "year": 2020
+ },
+ "lb-django-unchained": {
+  "createdAt": "2026-11-04T02:40:45.045Z",
+  "desc": "Ein befreiter Sklave und ein deutscher Kopfgeldjäger wollen Djangos Frau von einem brutalen Plantagenbesitzer befreien.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Western"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/django-unchained/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Django Unchained",
+  "year": 2012
+ },
+ "lb-glass-onion": {
+  "createdAt": "2026-11-04T01:20:21Z",
+  "desc": "Detektiv Benoit Blanc reist nach Griechenland, um einen Fall rund um einen Tech-Milliardär und dessen exzentrischen Freundeskreis zu lösen.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Mystery",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/glass-onion/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Glass Onion",
+  "year": 2022
+ },
+ "lb-interstellar": {
+  "createdAt": "2026-11-04T02:40:34.034Z",
+  "desc": "Als die Erde unbewohnbar wird, reist ein Team durch ein Wurmloch, um eine neue Heimat für die Menschheit zu finden.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Drama",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/interstellar/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Interstellar",
+  "year": 2014
+ },
+ "lb-men-in-black-ii": {
+  "createdAt": "2026-11-04T02:40:46.106Z",
+  "desc": "Agent J holt den in den Ruhestand versetzten Agent K zurück, um eine Alien-Bedrohung abzuwenden.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Komödie",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/men-in-black-ii/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Men in Black II",
+  "year": 2002
+ },
+ "lb-men-in-black": {
+  "createdAt": "2026-11-04T02:40:59.119Z",
+  "desc": "Ein junger Polizist wird von einer Geheimorganisation angeworben, die Aliens auf der Erde überwacht.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Komödie",
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/men-in-black/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Men in Black",
+  "year": 1997
+ },
+ "lb-rio-2011": {
+  "createdAt": "2026-11-04T02:40:02.062Z",
+  "desc": "Ein zahmer Ara aus Minnesota reist nach Rio de Janeiro, um sich mit dem letzten Weibchen seiner Art zu treffen.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Familie",
+   "Abenteuer",
+   "Animation"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/rio-2011/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Rio",
+  "year": 2011
+ },
+ "lb-the-hangover-part-ii": {
+  "createdAt": "2026-11-04T02:40:59.059Z",
+  "desc": "Diesmal wachen die Freunde in Bangkok auf – wieder ohne Erinnerung und mit einem vermissten Begleiter.",
+  "favorite": false,
+  "genres": [
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-hangover-part-ii/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Hangover Part II",
+  "year": 2011
+ },
+ "lb-spectre-2015": {
+  "createdAt": "2026-11-04T02:40:26.026Z",
+  "desc": "Eine kryptische Botschaft führt James Bond auf die Spur einer finsteren Organisation namens Spectre.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Thriller",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/spectre-2015/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Spectre",
+  "year": 2015
+ },
+ "lb-casablanca": {
+  "createdAt": "2026-11-04T02:40:27.147Z",
+  "desc": "Im Zweiten Weltkrieg trifft ein Barbesitzer in Casablanca seine verlorene Liebe wieder – mit ihrem Ehemann.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/casablanca/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Casablanca",
+  "year": 1942
+ },
+ "lb-johnny-english-strikes-again": {
+  "createdAt": "2026-11-04T02:40:06.006Z",
+  "desc": "Nach einem Hackerangriff auf den Geheimdienst wird der tollpatschige Agent Johnny English aus dem Ruhestand geholt.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/johnny-english-strikes-again/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Johnny English Strikes Again",
+  "year": 2018
+ },
+ "lb-palm-springs-2020": {
+  "createdAt": "2026-11-04T01:20:35Z",
+  "desc": "Nyles und Sarah lernen sich auf einer Hochzeit in Palm Springs kennen und stecken plötzlich in einer Zeitschleife fest, aus der sie nicht herauskommen.",
+  "favorite": false,
+  "genres": [
+   "Romantik",
+   "Science-Fiction",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/palm-springs-2020/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Palm Springs",
+  "year": 2020
+ },
+ "lb-rosemarys-baby": {
+  "createdAt": "2026-11-04T02:40:25.145Z",
+  "desc": "Eine junge Schwangere ahnt, dass ihre Nachbarn und ihr Mann Finsteres mit ihrem ungeborenen Kind vorhaben.",
+  "favorite": false,
+  "genres": [
+   "Horror",
+   "Thriller",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/rosemarys-baby/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Rosemary's Baby",
+  "year": 1968
+ },
+ "lb-johnny-english-reborn": {
+  "createdAt": "2026-11-04T02:40:56.056Z",
+  "desc": "Johnny English soll ein Attentat auf den chinesischen Premier verhindern.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Krimi",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/johnny-english-reborn/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Johnny English Reborn",
+  "year": 2011
+ },
+ "lb-how-to-lose-a-guy-in-10-days": {
+  "createdAt": "2026-11-04T02:40:42.102Z",
+  "desc": "Eine Journalistin will einen Mann in zehn Tagen vergraulen – der aber eine Wette hat, sie zu halten.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/how-to-lose-a-guy-in-10-days/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "How to Lose a Guy in 10 Days",
+  "year": 2003
+ },
+ "lb-skyfall": {
+  "createdAt": "2026-11-04T02:40:48.048Z",
+  "desc": "Als MI6 angegriffen wird, muss James Bond M vor einem Gegner aus ihrer Vergangenheit beschützen.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Thriller",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/skyfall/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Skyfall",
+  "year": 2012
+ },
+ "lb-old-2021": {
+  "createdAt": "2026-11-04T01:20:29Z",
+  "desc": "Mehrere Familien entdecken im Urlaub einen abgelegenen Strand, an dem sie rasend schnell altern – ein ganzes Leben an einem einzigen Tag.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Mystery",
+   "Horror"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/old-2021/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Old",
+  "year": 2021
+ },
+ "lb-the-game": {
+  "createdAt": "2026-11-04T02:40:58.118Z",
+  "desc": "Ein reicher Banker bekommt zum Geburtstag ein mysteriöses Spiel geschenkt, das sein Leben aus den Fugen hebt.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Thriller",
+   "Mystery"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-game/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Game",
+  "year": 1997
+ },
+ "lb-jack-reacher": {
+  "createdAt": "2026-11-04T02:40:46.046Z",
+  "desc": "Ex-Militärermittler Jack Reacher untersucht einen Fall, der wie ein eindeutiger Amoklauf aussieht.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Thriller",
+   "Drama",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/jack-reacher/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Jack Reacher",
+  "year": 2012
+ },
+ "lb-harry-potter-and-the-prisoner-of-azkaban": {
+  "createdAt": "2026-11-04T02:40:37.097Z",
+  "desc": "Ein gefährlicher Gefangener bricht aus Askaban aus und scheint es auf Harry abgesehen zu haben.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-prisoner-of-azkaban/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Prisoner of Azkaban",
+  "year": 2004
+ },
+ "lb-the-grand-budapest-hotel": {
+  "createdAt": "2026-11-04T02:40:35.035Z",
+  "desc": "Der Concierge eines legendären Hotels und sein Lobby-Boy geraten in einen Streit um ein wertvolles Gemälde.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-grand-budapest-hotel/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Grand Budapest Hotel",
+  "year": 2014
+ },
+ "lb-the-shawshank-redemption": {
+  "createdAt": "2026-11-04T02:40:03.123Z",
+  "desc": "Ein unschuldig verurteilter Banker findet im Gefängnis Freundschaft und verliert nie die Hoffnung.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-shawshank-redemption/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Shawshank Redemption",
+  "year": 1994
+ },
+ "lb-oppenheimer-2023": {
+  "createdAt": "2026-11-04T01:20:19Z",
+  "desc": "Die Geschichte von J. Robert Oppenheimer und seiner Rolle beim Bau der Atombombe im Zweiten Weltkrieg.",
+  "favorite": false,
+  "genres": [
+   "Krieg",
+   "Drama",
+   "Historie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/oppenheimer-2023/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Oppenheimer",
+  "year": 2023
+ },
+ "lb-dune-2021": {
+  "createdAt": "2026-11-04T01:20:28Z",
+  "desc": "Der junge Paul Atreides muss mit seiner Familie auf den gefährlichsten Planeten des Universums, wo ein erbitterter Kampf um die wertvollste Ressource ausbricht.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/dune-2021/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Dune",
+  "year": 2021
+ },
+ "lb-harry-potter-and-the-goblet-of-fire": {
+  "createdAt": "2026-11-04T02:40:32.092Z",
+  "desc": "Harry wird unfreiwillig Teilnehmer des gefährlichen Trimagischen Turniers.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-goblet-of-fire/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Goblet of Fire",
+  "year": 2005
+ },
+ "lb-pirates-of-the-caribbean-the-curse-of-the-black-pearl": {
+  "createdAt": "2026-11-04T02:40:40.100Z",
+  "desc": "Jack Sparrow und Will Turner jagen verfluchte Piraten, die Elizabeth entführt haben.",
+  "favorite": false,
+  "genres": [
+   "Fantasy",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/pirates-of-the-caribbean-the-curse-of-the-black-pearl/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+  "year": 2003
+ },
+ "lb-la-la-land": {
+  "createdAt": "2026-11-04T02:40:21.021Z",
+  "desc": "Eine angehende Schauspielerin und ein Jazzpianist verlieben sich in Los Angeles, während sie ihren Träumen nachjagen.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Komödie",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/la-la-land/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "La La Land",
+  "year": 2016
+ },
+ "lb-crazy-stupid-love": {
+  "createdAt": "2026-11-04T02:40:57.057Z",
+  "desc": "Ein frisch getrennter Familienvater lässt sich von einem charmanten Aufreißer beibringen, wie man flirtet.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Romantik",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/crazy-stupid-love/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Crazy, Stupid, Love.",
+  "year": 2011
+ },
+ "lb-civil-war-2024": {
+  "createdAt": "2026-11-04T01:20:14Z",
+  "desc": "In naher Zukunft stehen die USA vor dem Bürgerkrieg. Eine Gruppe Kriegsreporter versucht zu überleben und trotzdem die Wahrheit zu berichten.",
+  "favorite": false,
+  "genres": [
+   "Krieg",
+   "Drama",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/civil-war-2024/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Civil War",
+  "year": 2024
+ },
+ "lb-harry-potter-and-the-philosophers-stone": {
+  "createdAt": "2026-11-04T02:40:50.110Z",
+  "desc": "Harry erfährt, dass er ein Zauberer ist, und beginnt sein erstes Jahr in Hogwarts.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-philosophers-stone/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Philosopher's Stone",
+  "year": 2001
+ },
+ "lb-the-hobbit-an-unexpected-journey": {
+  "createdAt": "2026-11-04T02:40:47.047Z",
+  "desc": "Der Hobbit Bilbo Beutlin schließt sich Gandalf und dreizehn Zwergen auf dem Weg zum Einsamen Berg an.",
+  "favorite": false,
+  "genres": [
+   "Fantasy",
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-hobbit-an-unexpected-journey/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Hobbit: An Unexpected Journey",
+  "year": 2012
+ },
+ "lb-top-gun-maverick": {
+  "createdAt": "2026-11-04T01:20:25Z",
+  "desc": "Nach über 30 Jahren als Navy-Pilot bildet Maverick eine Gruppe junger TOP-GUN-Absolventen für eine fast unmögliche Spezialmission aus.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/top-gun-maverick/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Top Gun: Maverick",
+  "year": 2022
+ },
+ "lb-once-upon-a-time-in-hollywood": {
+  "createdAt": "2026-11-04T02:40:03.003Z",
+  "desc": "Ein abgehalfterter TV-Star und sein Stuntdouble streifen 1969 durch ein Hollywood im Umbruch.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Drama",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/once-upon-a-time-in-hollywood/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Once Upon a Time... in Hollywood",
+  "year": 2019
+ },
+ "lb-fracture": {
+  "createdAt": "2026-11-04T02:40:22.082Z",
+  "desc": "Ein junger Staatsanwalt nimmt es mit einem brillanten Ingenieur auf, der seine Frau erschossen hat.",
+  "favorite": false,
+  "genres": [
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/fracture/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Fracture",
+  "year": 2007
+ },
+ "lb-notting-hill": {
+  "createdAt": "2026-11-04T02:40:57.117Z",
+  "desc": "Ein Buchhändler aus London verliebt sich in einen weltberühmten Filmstar.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/notting-hill/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Notting Hill",
+  "year": 1999
+ },
+ "lb-memento": {
+  "createdAt": "2026-11-04T02:40:52.112Z",
+  "desc": "Ein Mann ohne Kurzzeitgedächtnis sucht mithilfe von Notizen und Tattoos den Mörder seiner Frau.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Mystery"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/memento/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Memento",
+  "year": 2000
+ },
+ "lb-lone-survivor": {
+  "createdAt": "2026-11-04T02:40:39.039Z",
+  "desc": "Ein Einsatz von Navy SEALs in Afghanistan gerät außer Kontrolle – nach einer wahren Geschichte.",
+  "favorite": false,
+  "genres": [
+   "Krieg",
+   "Action",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/lone-survivor/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Lone Survivor",
+  "year": 2013
+ },
+ "lb-house-of-gucci": {
+  "createdAt": "2026-11-04T01:20:26Z",
+  "desc": "Patrizia Reggiani heiratet in die Gucci-Familie ein. Ihr Ehrgeiz löst eine Spirale aus Verrat, Rache und schließlich Mord aus.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Historie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/house-of-gucci/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "House of Gucci",
+  "year": 2021
+ },
+ "lb-back-to-the-future": {
+  "createdAt": "2026-11-04T02:40:16.136Z",
+  "desc": "Marty McFly landet mit einer Zeitmaschine im Jahr 1955 und muss dafür sorgen, dass sich seine Eltern verlieben.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Komödie",
+   "Science-Fiction"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/back-to-the-future/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Back to the Future",
+  "year": 1985
+ },
+ "lb-casino-royale-2006": {
+  "createdAt": "2026-11-04T02:40:26.086Z",
+  "desc": "James Bond tritt in seinem ersten 00-Einsatz bei einem Pokerspiel gegen einen Terrorfinanzier an.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/casino-royale-2006/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Casino Royale",
+  "year": 2006
+ },
+ "lb-zoolander-2": {
+  "createdAt": "2026-11-04T02:40:25.025Z",
+  "desc": "Die Ex-Models Derek Zoolander und Hansel werden in eine Verschwörung rund um ermordete Popstars verwickelt.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/zoolander-2/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Zoolander 2",
+  "year": 2016
+ },
+ "lb-war-dogs-2016": {
+  "createdAt": "2026-11-04T02:40:22.022Z",
+  "desc": "Zwei junge Männer aus Miami steigen in den Waffenhandel mit dem US-Militär ein – und übernehmen sich gewaltig.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Komödie",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/war-dogs-2016/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "War Dogs",
+  "year": 2016
+ },
+ "lb-quantum-of-solace": {
+  "createdAt": "2026-11-04T02:40:16.076Z",
+  "desc": "James Bond verfolgt die Hintermänner, die hinter dem Tod von Vesper Lynd stecken.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/quantum-of-solace/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Quantum of Solace",
+  "year": 2008
+ },
+ "lb-harry-potter-and-the-deathly-hallows-part-1": {
+  "createdAt": "2026-11-04T02:40:07.067Z",
+  "desc": "Harry, Ron und Hermine suchen außerhalb von Hogwarts nach Voldemorts Horkruxen.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/harry-potter-and-the-deathly-hallows-part-1/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Harry Potter and the Deathly Hallows: Part 1",
+  "year": 2010
+ },
+ "lb-star-wars-episode-ii-attack-of-the-clones": {
+  "createdAt": "2026-11-04T02:40:47.107Z",
+  "desc": "Anakin Skywalker beschützt Senatorin Padmé, während sich die Klonkriege anbahnen.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/star-wars-episode-ii-attack-of-the-clones/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Star Wars: Episode II – Attack of the Clones",
+  "year": 2002
+ },
+ "lb-the-lord-of-the-rings-the-two-towers": {
+  "createdAt": "2026-11-04T02:40:43.103Z",
+  "desc": "Die Gefährten sind getrennt, während Frodo und Sam mit Gollum weiter Richtung Mordor ziehen.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-lord-of-the-rings-the-two-towers/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Lord of the Rings: The Two Towers",
+  "year": 2002
+ },
+ "lb-knives-out-2019": {
+  "createdAt": "2026-11-04T02:40:01.001Z",
+  "desc": "Nach dem Tod eines reichen Krimiautors verdächtigt Detektiv Benoit Blanc dessen zerstrittene Familie – jeder hat ein Motiv.",
+  "favorite": false,
+  "genres": [
+   "Mystery",
+   "Komödie",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/knives-out-2019/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Knives Out",
+  "year": 2019
+ },
+ "lb-top-gun": {
+  "createdAt": "2026-11-04T02:40:15.135Z",
+  "desc": "Ein talentierter, aber waghalsiger Navy-Pilot wird an der Elite-Fliegerschule Top Gun ausgebildet.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Romantik",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/top-gun/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Top Gun",
+  "year": 1986
+ },
+ "lb-project-hail-mary": {
+  "createdAt": "2026-11-04T01:20:04Z",
+  "desc": "Ein Lehrer erwacht ohne Erinnerung auf einem Raumschiff weit weg von der Erde und begreift nach und nach, dass er die sterbende Sonne retten soll – mit unerwarteter Hilfe.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Science-Fiction",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/project-hail-mary/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Project Hail Mary",
+  "year": 2026
+ },
+ "lb-frantic": {
+  "createdAt": "2026-11-04T02:40:13.133Z",
+  "desc": "Ein amerikanischer Arzt sucht in Paris verzweifelt nach seiner plötzlich verschwundenen Frau.",
+  "favorite": false,
+  "genres": [
+   "Mystery",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/frantic/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Frantic",
+  "year": 1988
+ },
+ "lb-the-odyssey-2026": {
+  "createdAt": "2026-11-04T01:20:03Z",
+  "desc": "Nach dem Trojanischen Krieg kämpft sich Odysseus, König von Ithaka, auf einer gefährlichen Heimreise durch Launen der Götter, Ungeheuer und Prüfungen seiner List.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Action",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-odyssey-2026/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Odyssey",
+  "year": 2026
+ },
+ "lb-back-to-the-future-part-iii": {
+  "createdAt": "2026-11-04T02:40:10.130Z",
+  "desc": "Marty reist in den Wilden Westen von 1885, um Doc Brown zu retten.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Abenteuer",
+   "Science-Fiction",
+   "Western"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/back-to-the-future-part-iii/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Back to the Future Part III",
+  "year": 1990
+ },
+ "lb-the-great-gatsby-2013": {
+  "createdAt": "2026-11-04T02:40:44.044Z",
+  "desc": "Ein junger Mann wird in den 1920ern in die schillernde Welt seines rätselhaften Nachbarn Jay Gatsby hineingezogen.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-great-gatsby-2013/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Great Gatsby",
+  "year": 2013
+ },
+ "lb-the-lord-of-the-rings-the-return-of-the-king": {
+  "createdAt": "2026-11-04T02:40:38.098Z",
+  "desc": "Frodo und Sam nähern sich dem Schicksalsberg, während Mittelerde zur letzten Schlacht gegen Sauron antritt.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-lord-of-the-rings-the-return-of-the-king/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Lord of the Rings: The Return of the King",
+  "year": 2003
+ },
+ "lb-rango": {
+  "createdAt": "2026-11-04T02:40:04.064Z",
+  "desc": "Ein Chamäleon landet in einer Wüstenstadt im Wilden Westen und wird zufällig zum Sheriff.",
+  "favorite": false,
+  "genres": [
+   "Western",
+   "Familie",
+   "Animation",
+   "Komödie",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/rango/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Rango",
+  "year": 2011
+ },
+ "lb-home-alone-2-lost-in-new-york": {
+  "createdAt": "2026-11-04T02:40:08.128Z",
+  "desc": "Kevin landet allein in New York und trifft dort wieder auf die beiden Einbrecher.",
+  "favorite": false,
+  "genres": [
+   "Familie",
+   "Komödie",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/home-alone-2-lost-in-new-york/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Home Alone 2: Lost in New York",
+  "year": 1992
+ },
+ "lb-black-bag-2025": {
+  "createdAt": "2026-11-04T01:20:11Z",
+  "desc": "Als eine Geheimagentin unter Verratsverdacht gerät, muss ihr Ehemann, selbst Agent, zwischen Loyalität zu ihr und zu seinem Land wählen.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Mystery"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/black-bag-2025/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Black Bag",
+  "year": 2025
+ },
+ "lb-mission-impossible-the-final-reckoning": {
+  "createdAt": "2026-11-04T01:20:09Z",
+  "desc": "Ethan Hunt und sein Team jagen weiter die KI „Entität“, die weltweit Geheimdienste unterwandert hat – und haben endlich ein Mittel, sie abzuschalten.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/mission-impossible-the-final-reckoning/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Mission: Impossible – The Final Reckoning",
+  "year": 2025
+ },
+ "lb-dune-part-two": {
+  "createdAt": "2026-11-04T01:20:15Z",
+  "desc": "Paul Atreides verbündet sich mit Chani und den Fremen, um sich an den Mördern seiner Familie zu rächen – und muss zwischen Liebe und dem Schicksal des Universums wählen.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Science-Fiction"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/dune-part-two/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Dune: Part Two",
+  "year": 2024
+ },
+ "lb-wake-up-dead-man": {
+  "createdAt": "2026-11-04T01:20:06Z",
+  "desc": "In einer Kleinstadtgemeinde geschieht ein scheinbar unmöglicher Mord. Detektiv Benoit Blanc ermittelt gemeinsam mit der örtlichen Polizeichefin.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Thriller",
+   "Mystery"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/wake-up-dead-man/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Wake Up Dead Man",
+  "year": 2025
+ },
+ "lb-the-prestige": {
+  "createdAt": "2026-11-04T02:40:27.087Z",
+  "desc": "Zwei rivalisierende Zauberkünstler im London des 19. Jahrhunderts überbieten sich mit gefährlichen Tricks.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Drama",
+   "Mystery"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-prestige/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Prestige",
+  "year": 2006
+ },
+ "lb-argo": {
+  "createdAt": "2026-11-04T02:40:49.049Z",
+  "desc": "Ein CIA-Agent will 1980 sechs Amerikaner aus dem Iran holen – getarnt als Filmcrew eines erfundenen Science-Fiction-Films.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/argo/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Argo",
+  "year": 2012
+ },
+ "lb-abraham-lincoln-vampire-hunter": {
+  "createdAt": "2026-11-04T02:40:51.051Z",
+  "desc": "Der spätere US-Präsident Abraham Lincoln führt im Geheimen einen Krieg gegen Vampire.",
+  "favorite": false,
+  "genres": [
+   "Horror",
+   "Action",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/abraham-lincoln-vampire-hunter/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Abraham Lincoln: Vampire Hunter",
+  "year": 2012
+ },
+ "lb-american-psycho": {
+  "createdAt": "2026-11-04T02:40:53.113Z",
+  "desc": "Ein erfolgreicher Investmentbanker im New York der 80er führt ein grausames Doppelleben.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Drama",
+   "Thriller",
+   "Horror"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/american-psycho/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "American Psycho",
+  "year": 2000
+ },
+ "lb-paddington": {
+  "createdAt": "2026-11-04T02:40:33.033Z",
+  "desc": "Ein höflicher Bär aus Peru kommt nach London und findet bei Familie Brown ein neues Zuhause.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Familie",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/paddington/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Paddington",
+  "year": 2014
+ },
+ "lb-pirates-of-the-caribbean-at-worlds-end": {
+  "createdAt": "2026-11-04T02:40:21.081Z",
+  "desc": "Will und Elizabeth reisen ans Ende der Welt, um Jack Sparrow zurückzuholen.",
+  "favorite": false,
+  "genres": [
+   "Abenteuer",
+   "Action",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/pirates-of-the-caribbean-at-worlds-end/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Pirates of the Caribbean: At World's End",
+  "year": 2007
+ },
+ "lb-tenet": {
+  "createdAt": "2026-11-04T01:20:33Z",
+  "desc": "Mit nur einem Wort als Hinweis kämpft ein Agent in einer Welt der Spionage, in der die Zeit selbst rückwärts laufen kann, um das Überleben der Welt.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Action",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/tenet/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Tenet",
+  "year": 2020
+ },
+ "lb-ghostbusters": {
+  "createdAt": "2026-11-04T02:40:18.138Z",
+  "desc": "Drei Wissenschaftler gründen in New York einen Geisterjäger-Service – gerade rechtzeitig für eine übernatürliche Invasion.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/ghostbusters/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Ghostbusters",
+  "year": 1984
+ },
+ "lb-the-hobbit-the-battle-of-the-five-armies": {
+  "createdAt": "2026-11-04T02:40:32.032Z",
+  "desc": "Nach dem Fall des Drachen Smaug kämpfen Zwerge, Elben, Menschen und Orks um den Schatz des Einsamen Berges.",
+  "favorite": false,
+  "genres": [
+   "Fantasy",
+   "Action",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-hobbit-the-battle-of-the-five-armies/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Hobbit: The Battle of the Five Armies",
+  "year": 2014
+ },
+ "lb-the-circle-2017": {
+  "createdAt": "2026-11-04T02:40:14.014Z",
+  "desc": "Eine junge Frau beginnt bei einem mächtigen Tech-Konzern und gerät in ein System totaler Transparenz und Überwachung.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Thriller",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-circle-2017/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Circle",
+  "year": 2017
+ },
+ "lb-the-menu-2022": {
+  "createdAt": "2026-11-04T01:20:22Z",
+  "desc": "Ein junges Paar reist auf eine abgelegene Insel zu einem exklusiven Restaurant, dessen Starkoch ein Menü voller schockierender Überraschungen vorbereitet hat.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Horror"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-menu-2022/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Menu",
+  "year": 2022
+ },
+ "lb-the-social-network": {
+  "createdAt": "2026-11-04T02:40:08.068Z",
+  "desc": "Die Entstehung von Facebook und die Rechtsstreitigkeiten, die Mark Zuckerberg damit auslöste.",
+  "favorite": false,
+  "genres": [
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-social-network/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Social Network",
+  "year": 2010
+ },
+ "lb-whiplash-2014": {
+  "createdAt": "2026-11-04T02:40:36.036Z",
+  "desc": "Ein junger Schlagzeuger will einer der Großen werden und gerät an einen gnadenlosen Musiklehrer.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Musik",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/whiplash-2014/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Whiplash",
+  "year": 2014
+ },
+ "lb-warfare": {
+  "createdAt": "2026-11-04T01:20:10Z",
+  "desc": "Ein Navy-SEAL-Einsatz im Irak gerät außer Kontrolle. In Echtzeit erzählt und nach den Erinnerungen der beteiligten Soldaten rekonstruiert.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Krieg"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/warfare/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Warfare",
+  "year": 2025
+ },
+ "lb-groundhog-day": {
+  "createdAt": "2026-11-04T02:40:07.127Z",
+  "desc": "Ein zynischer Wettermann erlebt denselben Tag immer und immer wieder.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Fantasy",
+   "Romantik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/groundhog-day/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Groundhog Day",
+  "year": 1993
+ },
+ "lb-anyone-but-you": {
+  "createdAt": "2026-11-04T01:20:16Z",
+  "desc": "Nach einem perfekten ersten Date können sich Bea und Ben nicht mehr ausstehen – bis sie sich auf einer Hochzeit in Australien wiedersehen und ein Paar vorspielen.",
+  "favorite": false,
+  "genres": [
+   "Romantik",
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/anyone-but-you/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Anyone But You",
+  "year": 2023
+ },
+ "lb-zodiac": {
+  "createdAt": "2026-11-04T02:40:23.083Z",
+  "desc": "Ein Karikaturist, ein Reporter und ein Polizist jagen jahrelang den berüchtigten Zodiac-Killer.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Mystery",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/zodiac/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Zodiac",
+  "year": 2007
+ },
+ "lb-conclave": {
+  "createdAt": "2026-11-04T01:20:13Z",
+  "desc": "Nach dem Tod des Papstes leitet Kardinal Lawrence die geheime Wahl seines Nachfolgers und stößt im abgeschotteten Vatikan auf eine Verschwörung.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/conclave/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Conclave",
+  "year": 2024
+ },
+ "lb-pirates-of-the-caribbean-dead-mans-chest": {
+  "createdAt": "2026-11-04T02:40:29.089Z",
+  "desc": "Jack Sparrow steht bei Davy Jones in der Schuld und sucht nach dessen Truhe.",
+  "favorite": false,
+  "genres": [
+   "Action",
+   "Abenteuer",
+   "Fantasy"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/pirates-of-the-caribbean-dead-mans-chest/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Pirates of the Caribbean: Dead Man's Chest",
+  "year": 2006
+ },
+ "lb-obsession-2025": {
+  "createdAt": "2026-11-04T01:20:07Z",
+  "desc": "Ein Romantiker wünscht sich mithilfe eines magischen Baums das Herz seines Schwarms – und merkt, dass die Erfüllung einen düsteren Preis hat.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Horror"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/obsession-2025/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Obsession",
+  "year": 2025
+ },
+ "lb-the-hangover-part-iii": {
+  "createdAt": "2026-11-04T02:40:43.043Z",
+  "desc": "Das Wolfsrudel muss ein letztes Mal los, als Alan in eine Krise gerät und Mr. Chow wieder auftaucht.",
+  "favorite": false,
+  "genres": [
+   "Komödie"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-hangover-part-iii/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Hangover Part III",
+  "year": 2013
+ },
+ "lb-return-of-the-jedi": {
+  "createdAt": "2026-11-04T02:40:19.139Z",
+  "desc": "Luke Skywalker will Darth Vader zur hellen Seite zurückholen, während die Rebellen den neuen Todesstern angreifen.",
+  "favorite": false,
+  "genres": [
+   "Science-Fiction",
+   "Abenteuer",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/return-of-the-jedi/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Return of the Jedi",
+  "year": 1983
+ },
+ "lb-el-camino-a-breaking-bad-movie": {
+  "createdAt": "2026-11-04T02:40:00.000Z",
+  "desc": "Direkt nach dem Breaking-Bad-Finale ist Jesse Pinkman auf der Flucht und versucht, sich ein neues Leben fern von seiner Vergangenheit zu verschaffen.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Drama",
+   "Thriller"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/el-camino-a-breaking-bad-movie/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "El Camino: A Breaking Bad Movie",
+  "year": 2019
+ },
+ "lb-euphoria-trouble-dont-last-always": {
+  "createdAt": "2026-11-04T01:20:30Z",
+  "desc": "Euphoria-Spezialfolge: Nachdem Jules sie am Bahnhof zurückgelassen hat und sie rückfällig geworden ist, verbringt Rue Weihnachten.",
+  "favorite": false,
+  "genres": [
+   "Drama"
+  ],
+  "kind": "serie",
+  "lbUri": "https://letterboxd.com/film/euphoria-trouble-dont-last-always/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Euphoria: Trouble Don't Last Always",
+  "year": 2020
+ },
+ "lb-the-talented-mr-ripley": {
+  "createdAt": "2026-11-04T02:40:54.114Z",
+  "desc": "Ein junger Mann soll einen reichen Erben aus Italien zurückholen und nimmt immer mehr dessen Leben an.",
+  "favorite": false,
+  "genres": [
+   "Krimi",
+   "Thriller",
+   "Drama"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/the-talented-mr-ripley/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "The Talented Mr. Ripley",
+  "year": 1999
+ },
+ "lb-fantastic-beasts-and-where-to-find-them": {
+  "createdAt": "2026-11-04T02:40:18.018Z",
+  "desc": "Der Magizoologe Newt Scamander kommt 1926 nach New York, wo einige seiner magischen Tierwesen entkommen.",
+  "favorite": false,
+  "genres": [
+   "Fantasy",
+   "Abenteuer"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/fantastic-beasts-and-where-to-find-them/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Fantastic Beasts and Where to Find Them",
+  "year": 2016
+ },
+ "lb-amadeus": {
+  "createdAt": "2026-11-04T02:40:17.137Z",
+  "desc": "Der Komponist Salieri erzählt von seiner Eifersucht auf das Genie Wolfgang Amadeus Mozart.",
+  "favorite": false,
+  "genres": [
+   "Drama",
+   "Historie",
+   "Musik"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/amadeus/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Amadeus",
+  "year": 1984
+ },
+ "lb-how-to-make-a-killing-2026": {
+  "createdAt": "2026-11-04T01:20:05Z",
+  "desc": "Von seiner superreichen Familie verstoßen, will sich ein Arbeiter sein Erbe zurückholen – egal, wie viele Verwandte ihm dabei im Weg stehen.",
+  "favorite": false,
+  "genres": [
+   "Komödie",
+   "Thriller",
+   "Krimi"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/how-to-make-a-killing-2026/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "How to Make a Killing",
+  "year": 2026
+ },
+ "lb-spy-game": {
+  "createdAt": "2026-11-04T02:40:49.109Z",
+  "desc": "Ein CIA-Veteran versucht an seinem letzten Arbeitstag, seinen einstigen Schützling aus chinesischer Haft zu retten.",
+  "favorite": false,
+  "genres": [
+   "Thriller",
+   "Krimi",
+   "Action"
+  ],
+  "kind": "film",
+  "lbUri": "https://letterboxd.com/film/spy-game/",
+  "rating": 0,
+  "releaseDate": "",
+  "releaseNote": "",
+  "status": "seen",
+  "title": "Spy Game",
+  "year": 2001
+ }
+}
