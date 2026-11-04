@@ -103,7 +103,7 @@ Ist bereits erledigt: Der Abgleich läuft direkt in Supabase, jeden Morgen gegen
 
 ## Freunden schicken
 
-Final Cut ist privat: Die Filme erscheinen nur über den geheimen Link mit `#k=…` am Ende. Schick genau diesen Link an deine Freunde. Sie brauchen kein Konto, sehen alles und können mit ihrem Namen Sterne vergeben. Bearbeiten kannst nur du. Der Link merkt sich auf jedem Gerät, danach reicht auch die normale Adresse.
+Final Cut ist privat: Die Filme erscheinen nur über den geheimen Link mit `#k=…` am Ende. Schick genau diesen Link an deine Freunde. Sie brauchen kein Konto, sehen alles und können mit ihrem Namen Sterne vergeben. Bearbeiten kannst nur du. Der Schlüssel bleibt in der Adresszeile stehen, so funktionieren auch Lesezeichen, Teilen und „Zum Home-Bildschirm“.
 
 Neuen Link erzeugen (alter wird ungültig): im Supabase SQL Editor
 `update private.settings set v = 'NEUER-SCHLUESSEL' where k = 'access_key';`

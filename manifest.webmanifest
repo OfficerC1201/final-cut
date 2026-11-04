@@ -2,7 +2,6 @@
   "name": "Final Cut",
   "short_name": "Final Cut",
   "description": "Meine Filme und Serien: Empfehlungen, Top 10, Sammlung und Bewertungen.",
-  "start_url": "./",
   "display": "standalone",
   "background_color": "#0e0d10",
   "theme_color": "#0e0d10",

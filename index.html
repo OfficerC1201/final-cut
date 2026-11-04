@@ -229,7 +229,7 @@ form.add .row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:c
 .bscore b{font-family:var(--display);font-size:26px;font-weight:800;color:var(--fav);line-height:1}
 .bscore span{font-size:11px;color:var(--muted);white-space:nowrap}
 @media (max-width:520px){.best .slot{grid-template-columns:34px 36px 1fr auto}.best .slot .num{font-size:28px}}
-body.locked .wrap > :not(header){display:none}
+body.locked .wrap > :not(header){display:none !important}
 body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
 .overview{display:flex;flex-direction:column;gap:14px}
 .totals{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -936,7 +936,9 @@ body.locked .status-note{font-size:15px;color:var(--fg);margin-top:16px}
     let accessKey = "";
     try{ accessKey = localStorage.getItem("finalcut-key")||""; }catch(e){}
     const mk = location.hash.match(/^#k=([A-Za-z0-9]{10,64})$/);
-    if(mk){ accessKey = mk[1]; try{ localStorage.setItem("finalcut-key", accessKey); }catch(e){} history.replaceState(null, "", location.pathname + location.search); }
+    if(mk){ accessKey = mk[1]; try{ localStorage.setItem("finalcut-key", accessKey); }catch(e){} }
+    // Schlüssel in der Adresse behalten, damit Verknüpfungen und geteilte Links ihn enthalten
+    if(accessKey && !mk && !/access_token|error/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search + "#k=" + accessKey);
     sb = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, { global:{ headers: accessKey? { "x-fc-key": accessKey } : {} } });
     readonly = true;
     const applySession = async s => { session = s; readonly = !s; assets = s? bannerStore : null;
