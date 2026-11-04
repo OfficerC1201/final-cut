@@ -20,7 +20,7 @@ Plane etwa 30 Minuten ein.
 | `icon.svg`, `icon-180.png`, `icon-512.png`, `manifest.webmanifest` | App-Symbol für den Home-Bildschirm |
 | `supabase/schema.sql` | Legt die Datenbank an |
 | `supabase/seed.sql` | Spielt deine 183 Titel ein |
-| `sync/` und `.github/workflows/` | Der tägliche Letterboxd-Abgleich |
+| `supabase/letterboxd-sync.sql` | Beschreibung des täglichen Letterboxd-Abgleichs |
 | `data/titles-backup.json` | Sicherungskopie aller Titel |
 
 ---
@@ -92,16 +92,9 @@ window.FINAL_CUT_CONFIG = {
 
 Jetzt kannst du die Seite öffnen. Zum Bearbeiten unten im Kopfbereich auf **„Anmelden zum Bearbeiten“** tippen, deine E-Mail eingeben und den Link aus der E-Mail öffnen.
 
-## Schritt 7: Täglichen Letterboxd-Abgleich einschalten
+## Schritt 7: Täglicher Letterboxd-Abgleich
 
-1. In Supabase unter **Project Settings** → **API** den Schlüssel **service_role** kopieren.
-2. Im GitHub-Repository: **Settings** → **Secrets and variables** → **Actions** → **New repository secret**. Zwei Einträge anlegen:
-   - Name `SUPABASE_URL`, Wert: deine Project URL
-   - Name `SUPABASE_SERVICE_KEY`, Wert: der service_role-Schlüssel
-3. Oben auf den Reiter **Actions**. Falls gefragt, die Workflows aktivieren.
-4. Links **Letterboxd-Abgleich** wählen → **Run workflow**, um ihn einmal sofort zu testen.
-
-Danach läuft der Abgleich jeden Morgen automatisch. Neue Filme kommen mit Titel, Jahr, Genres, Status „Gesehen“ und Link dazu. Was du selbst gepflegt hast, wird nie überschrieben.
+Ist bereits erledigt: Der Abgleich läuft direkt in Supabase, jeden Morgen gegen 7–8 Uhr. Neue Filme kommen mit Titel, Jahr, Genres, Status „Gesehen“ und Link dazu. Was du selbst gepflegt hast, wird nie überschrieben. Details stehen in `supabase/letterboxd-sync.sql`.
 
 ---
 
@@ -117,6 +110,5 @@ Einfach die Adresse schicken. Ohne Anmeldung können sie alles ansehen, Karten �
 ## Gut zu wissen
 
 - **Neue Filme haben noch keine Kurzbeschreibung.** Die schreibe ich dir gern, wenn du mich fragst.
-- **Falls der Abgleich fehlschlägt** (rotes Kreuz im Reiter „Actions“): Letterboxd blockiert manchmal Anfragen von Servern. Schick mir dann die Fehlermeldung.
 - **Kosten:** GitHub Pages und der kostenlose Supabase-Tarif reichen für Final Cut völlig aus. Ein kostenloses Supabase-Projekt pausiert nach 7 Tagen ganz ohne Besuche; dann im Supabase-Dashboard auf „Restore“ klicken. Der tägliche Abgleich verhindert das in der Regel.
 - **Eigene Adresse** wie `finalcut.de`: geht später über Settings → Pages → Custom domain.
