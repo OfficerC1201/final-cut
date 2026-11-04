@@ -21,13 +21,16 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const decode = (s: string) => s.replace(/&#0?39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 
 async function getHtml(url: string): Promise<string | null> {
-  for (let attempt = 1; attempt <= 3; attempt++) {
+  let last = 0;
+  for (let attempt = 1; attempt <= 4; attempt++) {
     const res = await fetch(url, { headers: HEADERS });
     if (res.ok) return await res.text();
     if (res.status === 404) return null;
-    await sleep(1500 * attempt);
+    last = res.status;
+    await res.body?.cancel();
+    await sleep(4000 * attempt);
   }
-  throw new Error(`Letterboxd nicht erreichbar: ${url}`);
+  throw new Error(`Letterboxd nicht erreichbar (HTTP ${last}): ${url}`);
 }
 
 type Film = { slug: string; name: string; rating: number };
@@ -63,22 +66,24 @@ Deno.serve(async () => {
   const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
   try {
     const films: Film[] = [];
+    let partial = "";
     for (let page = 1; page <= 60; page++) {
-      const html = await getHtml(`https://letterboxd.com/${USER}/films/` + (page > 1 ? `page/${page}/` : ""));
+      let html: string | null;
+      try { html = await getHtml(`https://letterboxd.com/${USER}/films/` + (page > 1 ? `page/${page}/` : "")); }
+      catch (e) { if (page === 1) throw e; partial = `ab Seite ${page} nicht erreichbar`; break; }
       if (!html) break;
       const f = parseFilms(html);
       if (!f.length) break;
       films.push(...f);
-      await sleep(400);
+      await sleep(2500);
     }
 
     const { data: rows, error } = await sb.from("titles").select("id,data").limit(10000);
     if (error) throw error;
     const byId = new Map(rows!.map((r) => [r.id, r]));
     const byKey = new Map(rows!.map((r) => [key(r.data?.title, r.data?.year), r]));
-    const lbCount = rows!.filter((r) => r.id.startsWith("lb-")).length;
-    if (films.length < Math.min(20, lbCount * 0.5)) {
-      return Response.json({ ok: false, reason: `Nur ${films.length} Filme gefunden – vermutlich blockiert. Nichts geändert.` }, { status: 502 });
+    if (!films.length) {
+      return Response.json({ ok: false, reason: "Keine Filme gefunden – vermutlich blockiert. Nichts geändert." }, { status: 502 });
     }
 
     const added: string[] = [], updated: string[] = [];
@@ -92,7 +97,8 @@ Deno.serve(async () => {
       const existing = byId.get(id) || byKey.get(key(title, year));
 
       if (!existing) {
-        const genres = genreFetches++ < 40 ? await genresOf(f.slug) : [];
+        let genres: string[] = [];
+        if (genreFetches++ < 20) { try { genres = await genresOf(f.slug); } catch { genres = []; } await sleep(1500); }
         await sb.from("titles").upsert({ id, data: {
           title, year, kind: SERIES.has(f.slug) ? "serie" : "film", status: "seen", favorite: false,
           releaseDate: "", releaseNote: "", lbUri, rating: f.rating || 0, desc: "", genres,
@@ -106,13 +112,13 @@ Deno.serve(async () => {
       if (d.status !== "seen") patch.status = "seen";
       if (!d.lbUri) patch.lbUri = lbUri;
       if (f.rating > 0 && f.rating !== d.rating) patch.rating = f.rating;
-      if ((!d.genres || !d.genres.length) && genreFetches++ < 40) patch.genres = await genresOf(f.slug);
+      if ((!d.genres || !d.genres.length) && genreFetches++ < 20) { try { patch.genres = await genresOf(f.slug); } catch { /* nächstes Mal */ } await sleep(1500); }
       if (Object.keys(patch).length) {
         await sb.from("titles").update({ data: { ...d, ...patch }, updated_at: new Date().toISOString() }).eq("id", existing.id);
         updated.push(d.title || title);
       }
     }
-    return Response.json({ ok: true, found: films.length, added, updated });
+    return Response.json({ ok: true, found: films.length, partial, added, updated });
   } catch (e) {
     return Response.json({ ok: false, reason: String((e as Error).message || e) }, { status: 500 });
   }
